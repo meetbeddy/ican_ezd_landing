@@ -4,7 +4,7 @@ const ican = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:5000"
-      : "https://powerful-beach-33206.herokuapp.com",
+      : "https://icanezd-api.onrender.com",
 });
 
 ican.interceptors.response.use(
