@@ -2,7 +2,7 @@ import React from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Alert, Button, Form } from "react-bootstrap";
 import { DatePicker } from "antd";
-import "antd/dist/reset.css";
+// import "antd/dist/reset.css";
 
 function Payment({
   handleSubmit,

@@ -50,7 +50,15 @@ function Footer() {
             <div className="col-lg-4 col-md-6 footer-newsletter">
               <h4>Download our mobile app</h4>
               <a href="https://play.google.com/store/apps/details?id=com.engelsimmanuel.icanszd&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1&pli=1">
-                <img src="assets/images/en_badge_web_generic.png" alt="" />
+                <img
+                  src="assets/images/en_badge_web_generic.png"
+                  alt=""
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                  }}
+                />
               </a>
             </div>
           </div>
