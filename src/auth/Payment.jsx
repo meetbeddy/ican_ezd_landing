@@ -1,6 +1,6 @@
 import React from "react";
 import { usePaystackPayment } from "react-paystack";
-import { Alert, Button, Form } from "react-bootstrap";
+import { Alert, Button, Form, Spinner } from "react-bootstrap";
 import { DatePicker } from "antd";
 // import "antd/dist/reset.css";
 
@@ -11,6 +11,7 @@ function Payment({
 	onSuccess,
 	onDateChange,
 	setStep,
+	loading,
 }) {
 	const [paymentMethod, setPaymentMethod] = React.useState(undefined);
 	let amount;
@@ -147,6 +148,15 @@ function Payment({
 
 					<div className='d-grid'>
 						<Button variant='primary' type='submit'>
+							{loading && (
+								<Spinner
+									as='span'
+									animation='grow'
+									size='sm'
+									role='status'
+									aria-hidden='true'
+								/>
+							)}
 							Register
 						</Button>
 					</div>
