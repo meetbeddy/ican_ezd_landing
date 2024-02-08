@@ -8,7 +8,7 @@ function Hero({ data }) {
           <div className="col-xl-12">
             <h1>{data?.year}</h1>
             <h2>{data?.theme}</h2>
-            <p className="text-success fs-4 font-weight-bold">
+            <p className="text-danger fs-4 font-weight-bold">
               {data?.dateNTime}
             </p>
             <a href="/register" className="btn-get-started scrollto">

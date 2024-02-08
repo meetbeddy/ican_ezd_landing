@@ -9,12 +9,11 @@ function AboutSection() {
             <div className="content">
               <h3>About the Current Year ICAN EZD Conference</h3>
               <p>
-                For the year 2022, the conference theme is “REVENUE BEYOND OIL:
-                LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL”.
+                For the year 2024, the conference theme is “ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES”.
                 There are also two captivating sub-themes slated for Day’s 1 & 2
                 of the conference. The Conference host and Chairman of Eastern
-                Zonal Districts – Mrs. Uzoamaka Deborah Egbuhuzor FCA together
-                with her Executive and other planning Committee Members have
+                Zonal Districts – Dr. Kingsley Sunday Oyekezie FCA together
+                with his Executive and other planning Committee Members have
                 attracted seasoned technocrats and captains of industries to
                 anchor and moderate these taught provoking topics that will
                 surely delight your experience. We have also concluded
