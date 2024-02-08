@@ -10,55 +10,58 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA ECONOMIC SURVIVAL",
-        year: "17TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 21st - Friday 24th March, 2023",
+          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
-        year: "17TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 21st - Friday 24th March, 2023",
+          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
-        year: "17TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 21st - Friday 24th March, 2023",
-        imageURL: "https://i.ibb.co/tY6W3hG/PIX.jpg",
+          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+        imageURL:
+          "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
-        year: "17TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 21st - Friday 24th March, 2023",
-        imageURL: "https://i.ibb.co/938w0F9/PICTURE-4.jpg",
+          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+        imageURL:
+          "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
-        year: "17TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 21st - Friday 24th March, 2023",
-        imageURL: "https://i.ibb.co/n033QDf/PICTURE-5.jpg",
+          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+        imageURL:
+          "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
     ],
     about: {
       // flier: flier,
       year: "Current Year",
       theme:
-        "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
+        "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
       details: [
         {
           detail:
-            "It is our pleasure to welcome you to the 17th Eastern Zonal Districts Conference of the Institute of Chartered Accountants of Nigeria (ICAN), holding virtually and physically from Tuesday 21st - Friday 24th March, 2023. This year’s conference Chief Host is the elegant and amiable 57th President of The Institute of Chartered Accountants of Nigeria (ICAN) – Mrs. Comfort Olu Eyitayo, mni, FCA.",
+            "It is our pleasure to welcome you to the 18th Eastern Zonal Districts Conference of the Institute of Chartered Accountants of Nigeria (ICAN), holding virtually and physically from Monday 4th - Thursday 7th March, 2024. This year’s conference Chief Host is the elegant and amiable 57th President of The Institute of Chartered Accountants of Nigeria (ICAN) – Mrs. Comfort Olu Eyitayo, mni, FCA.",
         },
         {
           detail:
@@ -66,7 +69,7 @@ export default {
         },
         {
           detail:
-            "For the year 2023, the conference theme is “REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL”. There are also two captivating sub-themes slated for Day’s 1 & 2 of the conference. The Conference host and Chairman of Eastern Zonal Districts – Mrs. Uzoamaka Deborah Egbuhuzor FCA together with her Executive and other planning Committee Members have attracted seasoned technocrats and captains of industries to anchor and moderate these taught provoking topics that will surely delight your experience. We have also concluded arrangements to host the conference on the best internet backbone that will ensure uninterrupted network services during the conference proceedings.",
+            "For the year 2024, the conference theme is “ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES”. There are also two captivating sub-themes slated for Day’s 1 & 2 of the conference. The Conference host and Chairman of Eastern Zonal Districts – Mrs. Uzoamaka Deborah Egbuhuzor FCA together with her Executive and other planning Committee Members have attracted seasoned technocrats and captains of industries to anchor and moderate these taught provoking topics that will surely delight your experience. We have also concluded arrangements to host the conference on the best internet backbone that will ensure uninterrupted network services during the conference proceedings.",
         },
         {
           detail:
@@ -548,9 +551,9 @@ export default {
     },
     travelInfo: {
       theme:
-        "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
+        "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
       venue:
-        "The 17TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
+        "The 18TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
       transport:
         "Attendees who would not be staying around the conference venue are advised to include a little extra budget for their daily transport.",
       hotel:

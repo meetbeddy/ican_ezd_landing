@@ -20,10 +20,10 @@ function ContactSection() {
                   <i className="bx bx-map" />
                   <h3>Technical Issues</h3>
                   <p>
-                    Phone: 08034077466, 08038675221, 08035449082, 08064034543
+                    Phone: 08137073232, 08027947114, 08039520684, 08034077466
                   </p>
                   <p>
-                    Email: icanezdconference@gmail.com, ebialimndili@gmail.com
+                    Email: icanezdconference@outlook.com,
                   </p>
                 </div>
               </div>
@@ -32,12 +32,10 @@ function ContactSection() {
                   <i className="bx bx-map" />
                   <h3>Advert and Sponsorship</h3>
                   <p>
-                    Phone: 08057104419, 08039284914, 08063337008,08032247337,
-                    08088610350, 08035582025
+                    Phone: 08034893703, 08067466900, 08039520684, 08068068951, 08065910641, 08037604691, 08037431092
                   </p>
                   <p>
-                    Email: icanezdconference@gmail.com, ebialimndili@gmail.com,
-                    otijiifyy@yahoo.com
+                    Email: icanezdconference@outlook.com, larryucy@gmail.com kingsleyoyekezie@yahoo.com, modozieemmanuel71@gmail.com, 
                   </p>
                 </div>
               </div>
@@ -46,9 +44,9 @@ function ContactSection() {
                   <i className="bx bx-map" />
                   <h3>Finance & Registration</h3>
                   <p>
-                    Phone: 08033892313, 08066584224, 08067466900, 07036442598
+                    Phone: 08137073232, 08027947114, 08039520684, 08030622874
                   </p>
-                  <p>Email: icanezdconference@gmail.com,sity55@yahoo.com</p>
+                  <p>Email: icanezdconference@outlook.com,</p>
                 </div>
               </div>
             </div>

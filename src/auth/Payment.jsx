@@ -16,7 +16,7 @@ function Payment({
 	const [paymentMethod, setPaymentMethod] = React.useState(undefined);
 	let amount;
 	if (inputValue.venue === "virtual") {
-		amount = 20000;
+		amount = 30000;
 	} else {
 		if (inputValue.memberStatus === "nonmember") {
 			amount = 45000;
@@ -35,7 +35,7 @@ function Payment({
 
 					break;
 				default:
-					amount = 10;
+					amount = 0;
 					break;
 			}
 		}
