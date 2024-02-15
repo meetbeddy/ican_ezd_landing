@@ -9,6 +9,7 @@ import data from "../data";
 import Speakers from "./Speakers";
 import Schedule from "./Schedule";
 import TravelInformation from "./TravelInformation";
+import Hotels from "./Hotels";
 
 function Index() {
   const [landingPageData, setLandingPageData] = React.useState({});
@@ -25,7 +26,7 @@ function Index() {
       <Speakers speakers={data.landingPage.speakers.speakers} />
       <Schedule days={data.landingPage.schedules.days} />
       <TravelInformation />
-
+      <Hotels hotels={data.hotels}/>
       <ContactSection />
       <Footer />
     </>
