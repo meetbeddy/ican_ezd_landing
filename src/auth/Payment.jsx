@@ -108,7 +108,7 @@ function Payment({
 						{paymentMethod === "direct" && (
 							<Alert variant='info' className='mt-2'>
 								Please Pay <em>₦{amount}</em> to Zenith Bank, Account Number
-								1015593246
+								1229063447
 							</Alert>
 						)}
 					</div>
