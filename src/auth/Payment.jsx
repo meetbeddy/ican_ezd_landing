@@ -99,7 +99,9 @@ function Payment({
 							type='button'
 							value='online'
 							onClick={handlePaymentMethod}
-							disabled={inputValue.paymentSuccess}>
+							// disabled={inputValue.paymentSuccess}
+							disabled
+						>
 							Use Online payment Instead{" "}
 							<span className='ms-2'>
 								<i class='bi bi-credit-card'></i>
