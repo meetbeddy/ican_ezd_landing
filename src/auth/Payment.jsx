@@ -88,7 +88,7 @@ function Payment({
 					required>
 					<option value=''>-SELECT STATUS-</option>
 					<option value='direct'>Direct Lodgement/Transfer</option>
-					<option value='online'>Online Payment</option>
+					<option value='online' disabled>Online Payment</option>
 				</Form.Select>
 			</Form.Group>
 			{(paymentMethod === "direct" || inputValue?.paymentSuccess) && (
