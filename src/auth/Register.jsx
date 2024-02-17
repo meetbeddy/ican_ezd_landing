@@ -9,6 +9,7 @@ import Personal from "./Personal";
 import Payment from "./Payment";
 import dayjs from "dayjs";
 import { ican } from "../api/axios";
+import data from "../data";
 
 function Register() {
 	const [inputValue, setInputValue] = React.useState({
@@ -107,6 +108,7 @@ function Register() {
 												inputValue={inputValue}
 												handleChange={handleChange}
 												handleSubmit={handleNext}
+												districtSocieties={data.districtSocieties}
 											/>
 										)}
 										{step === 2 && (
