@@ -959,42 +959,42 @@ export default {
         "https://i.ibb.co/6vRwzG0/OZOADIBE-ELVIS-EMEKA-ACA-12-TH-CHAIRMAN-EASTERN-ZONAL-DISTRICTS.jpg",
     },
   ],
-  executiveMenbers: [
+  executiveMembers: [
     {
-      name: "UZOAMAKA DEBORAH EGBHUZOR  FCA",
+      name: "Dr. Kingsley Sunday Oyekezie, FCA",
       position: "CHAIRMAN ",
       imageURL: "assets/images/executive/chairman.jpg",
     },
     {
-      name: "MICHAEL IROH IBEH FCA",
+      name: "Ojeh Augustine, Ph.D, FCA",
       position: "VICE-CHAIRMAN",
-      imageURL: "assets/images/executive/vice-chairman.jpg",
+      imageURL: "assets/images/executive/vice-chairman.png",
+    },
+    {
+      name: "Samuel Asikogu, FCA, CFA",
+      position: "SECRETARY",
+      imageURL: "assets/images/executive/secretary.png",
+    },
+    {
+      name: "Emmanuel C. Modozie, FCA",
+      position: "TREASURER",
+      imageURL: "assets/images/executive/treasurer.png",
+    },
+    {
+      name: "Gabriel Isu Idume, FCA",
+      position: "ASSISTANT ZONAL SECRETARY",
+      imageURL: "assets/images/executive/assistant-secretary.png",
+    },
+    {
+      name: "CHIMA IJEOMA OKIKECHI FCA, ACTI",
+      position: "IMMEDIATE PAST CHAIRMAN",
+      imageURL: "assets/images/executive/past-chairman.png",
     },
     // {
-    //   name: "EKERUCHE ONYEMAECHI, FCA",
-    //   position: "IMMEDIATE PAST CHAIRMAN",
-    //   imageURL: "https://i.ibb.co/3Y7yC98/EKERUCHE-ONYEMAECHI-FCA-2-ND-CHAIR-MAN-SOUTHERN-ZONAL-DISTRICTS.jpg"
+    //   name: "ESTHER EBERCHUKWU UMAHI FCA",
+    //   position: "IMMEDIATE PAST SECRETARY",
+    //   imageURL: "assets/images/executive/past-secretary.jpg",
     // },
-    {
-      name: "EKE MICHAEL OMOGOR ACA",
-      position: "SECRETARY",
-      imageURL: "assets/images/executive/secretary.jpg",
-    },
-    {
-      name: "EMMANUEL EKENE NNAMANI FCA",
-      position: "TREASURER",
-      imageURL: "assets/images/executive/treasurer.jpg",
-    },
-    {
-      name: "ELVIS EMEKA OZOADIBE FCA",
-      position: "IMMEDIATE PAST CHAIRMAN",
-      imageURL: "assets/images/executive/past-chairman.jpg",
-    },
-    {
-      name: "ESTHER EBERCHUKWU UMAHI FCA",
-      position: "IMMEDIATE PAST SECRETARY",
-      imageURL: "assets/images/executive/past-secretary.jpg",
-    },
 
     // {
     //   name: "Elder Sunday Omini Eloma FCA",
