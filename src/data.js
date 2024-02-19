@@ -816,47 +816,43 @@ export default {
   },
   presidency: [
     {
-      name: "MRS. COMFORT EYITAYO, FCA",
+      name: "Dr. Innocent Iweka Okwuosa, FCA",
       position: "PRESIDENT",
-      imageURL: "https://i.ibb.co/jTBxYc9/president.jpg",
+      imageURL: "assets/images/presidency/president.png",
     },
     {
-      name: "MALLAM TIJJANI MUSA ISA, FCA",
+      name: "Chief Davidson C. S. Alaribe, FCA",
       position: "VICE-PRESIDENT",
-      imageURL: "https://i.ibb.co/xDCnYWN/vice-president.jpg",
+      imageURL: "assets/images/presidency/vice-president.png",
     },
     {
-      name: "INNOCENT OKWUOSA, FCA",
+      name: "Mallam Haruna Nma Yahaya, mni, FCA",
       position: "1ST DEPUTY VICE-PRESIDENT",
       imageURL:
-        "https://i.ibb.co/CmkcZSY/Innocent-Okwuosa-B-Sc-M-Sc-Ph-D-FCIB-FCA-1st-Deputy-Vice-President.jpg",
+        "assets/images/presidency/first-deputy-vice.png",
     },
     {
-      name: "MALLAM HARUNA YAHAHA, FCA",
+      name: "Queensley Sofuratu Seghosime, mni, FCA,",
       position: "2ND DEPUTY VICE-PRESIDENT",
-      imageURL: "https://i.ibb.co/Pm3BQFp/second-deputy-vice.jpg",
+      imageURL: "assets/images/presidency/second-deputy-vice.png",
     },
     {
-      name: "DAME ONOME JOY ADEWUYI, FCA",
+      name: "Mallam Tijjani Musa Isa MIoD, FCA",
       position: "IMMEDIATE PAST PRESIDENT",
       imageURL:
-        "https://i.ibb.co/zNhdGZz/Dame-Onome-Joy-Adewuyi-B-Sc-M-Sc-FCIB-FCA-Immediate-Past-President.jpg",
+        "assets/images/presidency/immidiate-past-president.png",
     },
-    // {
-    //   name: "ALHAJI RAZAK JAIYEOLA, FCA",
-    //   position: "IMMEDIATE PAST PRESIDENT",
-    //   imageURL: "https://i.ibb.co/PcjCxvD/past-president.jpg"
-    // },
+
     {
-      name: "OLUWATOBI A. ABIOLA, FCA ",
+      name: "Abiola Oluwatobi Ayodele HND, BSc, FCA",
       position: "HONOURARY TREASURER",
       imageURL:
-        "https://i.ibb.co/m6M3pHf/OLUWATOBI-A-ABIOLA-FCA-HONORARY-TREASURER.jpg",
+        "assets/images/presidency/honorary-treasurer.png",
     },
     {
-      name: "PROF. AHMED MODU KUMSHE, FCA",
+      name: "Musibau Lanre Olasunkanmi, Phd, FCA",
       position: "REGISTRAR CHIEF",
-      imageURL: "https://i.ibb.co/2SGw21x/ceo.jpg",
+      imageURL: "assets/images/presidency/registra.png",
     },
   ],
   councilMembers: [

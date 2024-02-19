@@ -6,6 +6,7 @@ import RegSuccess from "./auth/RegSuccess";
 import AboutPage from "./landing/pages/AboutPage";
 import PageNotFound from "./landing/pages/404Page";
 import Executives from "./landing/pages/Executives";
+import Presidency from "./landing/pages/Presidency";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Landing />}></Route>
         <Route path="/about" element={<AboutPage />} />
         <Route path="/executives" element={<Executives />} />
+        <Route path="/current-presidency" element={<Presidency />} />
         <Route path="/register" element={<Register />}></Route>
         <Route path="/reg-success" element={<RegSuccess />}></Route>
       </Routes>
