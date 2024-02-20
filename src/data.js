@@ -353,202 +353,182 @@ export default {
             {
               time: "8:30am – 5:30pm",
               session: "Arrival",
-              description:
-                "Registration and Collection of Conference Materials",
-              imageURL: null,
+              description: "Registration and Collection of Conference Materials",
+              imageURL: null
             },
             {
-              time: "8:30am – 9:30am",
+              time: "8:30am – 10:30am",
               session: "Arrival",
-              description:
-                "Receiving the 57th ICAN President at Owerri Airport and Movement from Owerri Airport to the Palace of HRM Prof S.I Owuala",
-              imageURL: null,
+              description: "Receiving the 59th ICAN President at Akanu Ibiam International Airport by Abakiliki & District Society",
+              imageURL: null
             },
             {
-              time: "9:30am – 11:45am",
+              time: "10:30am – 12:15pm",
               session: "Arrival",
-              description:
-                "Courtesy Call/Visit to Federal Polytechnic Nekede, Owerri ",
-              imageURL: null,
+              description: "Courtesy Call/Visit to the Palace of HRM Eze Sunday Oketa (Onu Oha 111)",
+              imageURL: null
             },
             {
-              time: "11.45am – 12.05pm",
+              time: "12:15pm – 2:30pm",
               session: "Arrival",
-              description:
-                "Courtesy Call/Visit to the Palace of Chairman of Ndi Eze Imo, Mbari Ikenegbu ",
-              imageURL: null,
+              description: "Visit to the Vice Chancellor of Alex Ekwueme Federal University, Ndufualike",
+              imageURL: null
             },
             {
-              time: "12.05pm – .2.00pm",
-              session: "Break",
-              description: "Lunch Break",
-              imageURL: null,
+              time: "2:30pm – 4:00pm",
+              session: "Arrival",
+              description: "Courtesy Call/Visit to the Executive Governor of Ebonyi State, Right Hon. Builder Francis Ogbonnaya Nwifuru.",
+              imageURL: null
             },
             {
-              time: "2.15pm – 3.15Pm",
+              time: "4:00pm – 5:00pm",
               session: "Presentation",
-              description:
-                "Interactive Live Radio Program with Madam President and Zonal Chairman",
-              imageURL: null,
+              description: "Radio Programme with the 59th ICAN President at Legacy FM",
+              imageURL: null
             },
             {
-              time: "3.15pm – 4.30pm",
-              session: "Mobility",
-              description:
-                "Courtesy Call/Visit to His Excellency the Executive Governor of Imo State",
-              imageURL: null,
-            },
-            {
-              time: "4.30pm – 5.00pm",
-              session: "Meeting",
-              description: "Village Meeting",
-              imageURL: null,
-            },
-            {
-              time: "7.00Pm – 10.00Pm",
+              time: "7:00pm – 10:00pm",
               session: "Cultural Night",
-              description:
-                "Pre-Conference Cultural Night at Concorde Hotel (Hosted by Owerri & District Society)",
-              imageURL: null,
-            },
-          ],
+              description: "Pre-Conference Cultural Night at Osborne Lapalm Hotel (Hosted by Abakiliki & District Society)",
+              imageURL: null
+            }
+          ]
         },
         {
           day: "Day 02",
           date: "Wednesday",
           schedule: [
             {
-              time: "6.00am – 7.00am",
-              session: "Exercise",
-              description:
-                "Keep Fit Activities : Lawn Tennis, Table Tennis at Concorde Hotel Event Center",
+              time: "6:00am – 7:00am",
+              session: "Keep Fit Activities",
+              description: null,
+              imageURL: null
             },
             {
               time: "8:00am – 5:30pm",
-              session: "Registration",
-              description:
-                "Registration and Accreditation of Conference Participants",
+              session: "Registration and Accreditation of Conference Participants",
+              description: null,
+              imageURL: null
             },
             {
-              time: "9.00am – 10.00am",
-              session: "Plenary 1:",
-              description:
-                " Plenary 1: Leveraging Digital Technologies for Food Security in Nigeria by ProfM.O Iwe",
+              time: "8:30am – 9:30am",
+              session: "Plenary 1",
+              description: "Plenary 1: Artificial Intelligence: Opportunities and Implications on the future of Chartered Accountants by Prof W.U Ani (Physical Presentation) and Prof. Babatunde Bayodele Olofin (Virtual Presentation)",
+              imageURL: null
             },
             {
-              time: "10:00am – 10:45am",
-              session: "Opening Formalities:",
-              description: "Technical /Discussion session",
+              time: "9:30am - 10:30am",
+              session: "Discussion",
+              description: "Technical /Discussion session: Hon. Dr. L. Uguru FCA the Honorable Commissioner for Finance and Economic Development, Ebonyi State, Prof W.U Ani FCA and Dr. Magnus Nnaemeka Chukwuekezie FCA",
+              imageURL: null
             },
             {
-              time: "10.45am – 11.15am",
-              session: "Break",
-              description: "Tea Break",
-            },
-            {
-              time: "11.15am – 1.00pm",
-              session: "Opening Formalities:",
-              description: "Introduction & Recognition of Dignitaries",
-            },
-            {
-              time: "1.00pm – 2.00pm",
+              time: "10:00am – 10:30am",
               session: "Break",
               description: "Lunch Break",
+              imageURL: null
             },
             {
-              time: "2:00pm – 3.00pm",
-              session: "Plenary 2: ",
-              description:
-                "Plenary 2: Natural Capital accounting and valuation of the wealth of nations by Dr. Nnaemeka Chukwuone",
+              time: "10:30am – 1:00pm",
+              session: "Opening Formalities: National Anthem, Ebonyi State Anthem and ICAN Anthem Welcome Address by the Eastern Zonal Chairman Keynote Address by the 59th President of ICAN An Address by the Executive Governor of Ebonyi State, Governor Right Hon. Builder Francis Ogbonnaya Nwifuru. Vote of Thanks Group Photographs",
+              description: null,
+              imageURL: null
+            },
+            {
+              time: "1:00pm – 2:00pm",
+              session: "Break",
+              description: "Lunch Break",
+              imageURL: null
+            },
+            {
+              time: "2:00pm – 3:00pm",
+              session: "Plenary 2",
+              description: "Plenary 2: Unlocking Nigeria’s Economic Potentials through the adoption of Artificial Intelligence and Robotics in governance by Dr. Uche Ogah FCA (Physical Presentation)",
+              imageURL: null
             },
             {
               time: "3:00pm – 3:45pm",
               session: "Discussion",
               description: "Technical /Discussion session",
+              imageURL: null
             },
             {
-              time: "3.45pm – 4.00pm",
+              time: "3:45pm – 4:00pm",
               session: "Announcement",
               description: "Announcement/Closing Remarks for the Day",
-            },
-          ],
+              imageURL: null
+            }
+          ]
         },
         {
           day: "Day 03",
           date: "Thursday",
           schedule: [
             {
-              time: "6.00am – 7.00am",
-              session: "Exercise",
-              description: "Keep Fit Activities",
-              imageURL: null,
+              time: "6:00am – 7:00am",
+              session: "Keep Fit Activities",
+              description: null,
+              imageURL: null
             },
             {
-              time: "9.00am – 10.00am",
-              session: "Plenary 3:",
-              description:
-                "Plenary 3: African Continental Free Trade Agreement: Opportunities for the Agricultural Sector by Dr. Ngozi Ogwo FCA",
-              imageURL: null,
+              time: "9:00am – 10:00am",
+              session: "Plenary 3",
+              description: "Plenary 3: Innovations in Robotics and Artificial Intelligence: Building a Cognitive Enterprise by Dr. Ngozi Ogwo FCA (Physical Presentation)",
+              imageURL: null
             },
             {
-              time: "10:00am – 10:45am",
-              session: "",
-              description: "Technical /Discussion session",
-              imageURL: null,
-            },
-            {
-              time: "10.45am – 11.30 am",
-              session: "Health Talk:",
-              description: "Longevity and Stress Management",
-              imageURL: null,
-            },
-            {
-              time: "11.30am – 12.15pm",
-              session: "Break",
-              description: "Tea Break",
-              imageURL: null,
-            },
-            {
-              time: "12.15pm – 1.15pm",
-              session: "Rapporteur",
-              description: "Rapporteur-General’s Report",
-              imageURL: null,
-            },
-            {
-              time: "1.15pm – 2.15pm",
+              time: "10:00am – 11:00am",
               session: "Discussion",
-              description: "Closing Ceremonies",
-              imageURL: null,
+              description: "Technical /Discussion session",
+              imageURL: null
             },
-
             {
-              time: "7.00pm – 11.30pm",
-              session: "Gala Nite",
-              description: "Gala Nite at the Hotel Du Golf Limited",
-              imageURL: null,
+              time: "12:30pm – 1:30pm",
+              session: "Health Talk",
+              description: "Health Talk by Dr. Collins Ugwu",
+              imageURL: null
             },
-          ],
+            {
+              time: "1:30pm – 2:30pm",
+              session: "Report",
+              description: "Rapporteur-General’s Report",
+              imageURL: null
+            },
+            {
+              time: "2:30pm – 3:15pm",
+              session: "Closing Ceremonies",
+              description: null,
+              imageURL: null
+            },
+            {
+              time: "7:00pm – 10:00pm",
+              session: "Gala Nite",
+              description: null,
+              imageURL: null
+            }
+          ]
         },
         {
           day: "Day 04",
           date: "Friday",
           schedule: [
             {
-              time: "6.00am – 7.00am",
-              session: "Exercise",
-              description: "Keep Fit Activities",
-              imageURL: null,
+              time: "6:00am – 7:00am",
+              session: "Keep Fit Activities",
+              description: null,
+              imageURL: null
             },
             {
-              time: "7:30am – 12noon",
+              time: "7:30am – 12:00pm",
               session: "Departure",
-              description: "Departure",
-              imageURL: null,
-            },
-          ],
-        },
-      ],
+              description: null,
+              imageURL: null
+            }
+          ]
+        }
+      ]
     },
+
     travelInfo: {
       theme:
         "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
