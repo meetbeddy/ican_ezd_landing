@@ -10,7 +10,7 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
         year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
@@ -19,7 +19,7 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
         year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
@@ -28,7 +28,7 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
         year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
@@ -37,7 +37,7 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
         year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
@@ -46,7 +46,7 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
         year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Monday 4th - Thursday 7th March, 2024",
         imageURL:
@@ -57,7 +57,7 @@ export default {
       // flier: flier,
       year: "Current Year",
       theme:
-        "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
       details: [
         {
           detail:
@@ -69,7 +69,7 @@ export default {
         },
         {
           detail:
-            "For the year 2024, the conference theme is “ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES”. There are also two captivating sub-themes slated for Day’s 1 & 2 of the conference. The Conference host and Chairman of Eastern Zonal Districts – Dr. Kingsley Sunday Oyekezie FCA  together with his Executive and other planning Committee Members have attracted seasoned technocrats and captains of industries to anchor and moderate these taught provoking topics that will surely delight your experience. We have also concluded arrangements to host the conference on the best internet backbone that will ensure uninterrupted network services during the conference proceedings.",
+            "For the year 2024, the conference theme is “ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES”. There are also two captivating sub-themes slated for Day’s 1 & 2 of the conference. The Conference host and Chairman of Eastern Zonal Districts – Dr. Kingsley Sunday Oyekezie FCA  together with his Executive and other planning Committee Members have attracted seasoned technocrats and captains of industries to anchor and moderate these taught provoking topics that will surely delight your experience. We have also concluded arrangements to host the conference on the best internet backbone that will ensure uninterrupted network services during the conference proceedings.",
         },
         {
           detail:
@@ -531,7 +531,7 @@ export default {
 
     travelInfo: {
       theme:
-        "ARTIFICAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
       venue:
         "The 18TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
       transport:
