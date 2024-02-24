@@ -12,7 +12,7 @@ function Presidency() {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>executives</li>
+                        <li>presidency</li>
                     </ol>
                     <h3>ICAN Presidency</h3>
                 </div>

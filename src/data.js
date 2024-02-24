@@ -831,7 +831,7 @@ export default {
     },
     {
       name: "Musibau Lanre Olasunkanmi, Phd, FCA",
-      position: "REGISTRAR CHIEF",
+      position: "REGISTRAR/CHIEF EXECUTIVE",
       imageURL: "assets/images/presidency/registra.png",
     },
   ],

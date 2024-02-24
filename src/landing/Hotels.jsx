@@ -1,7 +1,7 @@
 import React from "react";
 
-function Hotels({hotels}) {
- 
+function Hotels({ hotels }) {
+
 
   const renderHotels = () => {
     return hotels.map((hotel, index) => (
@@ -38,18 +38,18 @@ function Hotels({hotels}) {
   };
 
   return (
-    <section id="pricing" className="contact">
-        <div className="container"  data-aos="fade-up">
+    <section id="hotels" className="contact">
+      <div className="container" data-aos="fade-up">
         <div className="section-title">
-          <h2>Hotels</h2>  
+          <h2>Hotels</h2>
         </div>
         <div className="row" data-aos="fade-up" data-aos-delay={100}>
-      {renderHotels()}
+          {renderHotels()}
+        </div>
       </div>
-    </div>
     </section>
 
-    
+
   );
 }
 

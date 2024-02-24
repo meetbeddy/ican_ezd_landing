@@ -15,10 +15,7 @@ function TravelInformation() {
                 <a href="#">Event Venue</a>
               </h4>
               <p>
-                The 17TH ICAN Easthern Zonal Conference will be holding
-                Physically at International Convention Center (ICC), along old
-                Enugu-Onitisha Express Way opposite Stanel Filling Station, Awka
-                Anambra State. The The Conference Will also Hold Virtually.
+
               </p>
             </div>
           </div>
@@ -39,13 +36,16 @@ function TravelInformation() {
             <div className="icon-box" data-aos="fade-up" data-aos-delay={200}>
               <i className="bi bi-building" />
               <h4>
-                <a href="#">Hotel</a>
+                <a href="#hotels">Hotel</a>
               </h4>
               <p>
                 The conference is organized on a non-residential basis.
                 Affordable accommodations are however available within and
                 around the Conference venue.
+
+
               </p>
+              <a href="#hotels">See Hotel Arrangements</a>
             </div>
           </div>
 
