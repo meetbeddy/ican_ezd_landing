@@ -7,7 +7,7 @@ function Speakers({ speakers }) {
         <div className="section-title">
           <h2>Key Note Speakers</h2>
         </div>
-        {/* <div className="row d-flex flex-wrap justify-content-center align-items-center">
+        <div className="row d-flex flex-wrap justify-content-center align-items-center">
           {speakers.map((speaker, i) => {
             return (
               <div
@@ -42,14 +42,14 @@ function Speakers({ speakers }) {
                     </div>
                   </div>
                   <div className="member-info">
-                    <h4>{speaker.name}</h4>
+                    <h4 className="text-uppercase">{speaker.name}</h4>
                     <span>{speaker.position}</span>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div> */}
+        </div>
       </div>
     </section>
   );

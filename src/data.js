@@ -259,31 +259,11 @@ export default {
       theme:
         "REVENUE BEYOND OIL: LEVERAGING NON-OIL EXPORT FOR NIGERIA'S ECONOMIC SURVIVAL",
       speakers: [
-        {
-          name: "DR NNAEMEKA CHUKWUONE",
-          position:
-            "Director, Resource and Environmental Policy Research Centre (REPRC), Environment for Development (EfD) Nigeria, University of Nigeria Nsukka",
-          imageURL: "assets/images/speakers/speaker1.png",
-          details: [
-            {
-              detail:
-                "Dr. Nnaemeka Chukwuone is the Director of Resource and Environmental Policy Research Centre (REPRC), Environment for Development (EfD) Nigeria, University of Nigeria Nsukka. For over fifteen years, Dr Chukwuone has been working, carrying out research and policy advocacy in the environment and resource economics and management. He has published widely and presented at different local and international conferences and meetings. He has also attracted many institutional and individual research grants and has facilitated and served as principal investigator or co-investigator in a good number of research studies. Dr Chukwuone has equally served in different capacities and has been involved in both national and international assignments, including serving as an International Expert in Economic Valuation of Environment and Natural Resources for a GEF project implemented by UNIDO, Enugu State Commissioner for Environment and Mineral Resources and in the drafting of some environmental policies for Nigeria. He has consulted for some national and international organizations, namely, the Federal Ministry of Environment, the Federal Ministry of Agriculture, the Federal Ministry of Water Resources, the World Bank, UNIDO, FAO, Africa Lead, and UNDP. He is a member of some professional national and international organizations. He is the president-elect of the African Association of Environmental and Resource Economics (AFAERE). His Centre, Resource and Environmental Policy Research Centre (REPRC), Environment for Development (EfD) Nigeria, University of Nigeria Nsukka, has been at the forefront of policy advocacy, discussion and capacity building regarding NCA in Nigeria in collaboration with the Federal Ministry of Environment and the World Bank.  ",
-            },
-          ],
-          sessions: [
-            {
-              day: "",
-              from: "",
-              to: "",
-              period: "",
-              topic: "",
-            },
-          ],
-        },
+
         {
           name: "NGOZI ANGELA OGWO - PhD",
           position: "Managing Partner/CEO, Grant Thornton Nigeria",
-          imageURL: "assets/images/speakers/speaker2.png",
+          imageURL: "assets/images/speakers/ngozi.png",
           details: [
             {
               detail:
@@ -302,13 +282,13 @@ export default {
         },
 
         {
-          name: "DR. OKOROCHUKWU BARTHY",
-          position: "Obstetrician | Gynecologist | Endoscopic Surgeon ",
-          imageURL: "assets/images/speakers/speaker4.png",
+          name: "Prof. Babatunde Bayodele Olofin",
+          position: "Director of Information and Communication Technology Centre (ICTC)",
+          imageURL: "assets/images/speakers/prof-olofin.png",
           details: [
             {
               detail:
-                "Dr Okorochukwu is an Obstetrician and Gynecologist, an Endoscopic Surgeon and a Fertility Expert who has delivered many papers on health matters. He has held many positions including being Chairman, Nigerian Medical Association Owerri, Imo state, Board Member, Federal Neuropsychiatric Hospital Enugu, Board Member, Nnamdi Azikiwe University Teaching Hospital Nnewi and Director of Training, Association of Gynecological Endoscopic Surgeons of Nigeria. He has served as an Examiner of the West African College of Surgeons, Head of Department of Obstetrics and Gynecology Federal Medical Center, he equally served as Head of Clinical Services FMC Owerri and Commissioner for Health Imo State. Dr Okorochukwu is currently the Commissioner for Agriculture and Natural Resources, Imo state, and President General, Amucha Ebeise Autonomous Community in Njaba Local Government Area. Dr Okorochukwu graduated from the prestigious Obafemi Awolowo University Ile Ife with M. B ch B degree and holds a Masters degree in Public Health. He is a Fellow of the West African College of Surgeons (FWACS), Fellow of International College of Surgeons (FICS), and a Consultant Obstetrician/ Gynecologist at Federal Medical Centre, Owerri.",
+                "Prof. Babatunde Bayodele Olofin is the Director of the Information and Communication Technology Centre (ICTC) at Enugu State University of Science and Technology (ESUT). He is responsible for developing the University's technology strategy and providing leadership and direction concerning the operation of ESUT's technology systems, core business applications, voice and data networks, IT Security, data centre operations, and the implementation of the University's enterprise resource planning project.",
             },
           ],
           sessions: [
@@ -322,14 +302,14 @@ export default {
           ],
         },
         {
-          name: "PROFESSOR IWE MADUEBIBISI",
+          name: "Dr. Uchechukwu S. Ogah, CON, FCA",
           position:
-            "Vice Chancellor | Michael Okpara University of Agriculture Umudike  ",
-          imageURL: "assets/images/speakers/speaker3.png",
+            "Former Minister of Mines and Steel Development",
+          imageURL: "assets/images/speakers/uche-ogah.png",
           details: [
             {
               detail:
-                "Professor Iwe has a long-standing interest in the emergence of an entrepreneurial culture, even from the earliest stages of his professional career. He has displayed the pursuit of this interest in numerous research works; academic, administrative and management positions he held in several Universities, including University of Nigeria Nsukka, Wageningen Agricultural University, Netherlands; University of Jos, University of Agriculture, Makurdi; Michael Okpara University of Agriculture, Umudike; Abia State University, Uturu, University of Uyo and Federal University of Technology, Owerri. His research interests range widely across the domain of Post-Harvest Technology; Food Processing; Value addition and Sensory Evaluation of foods. His research contributions revolve around 3-main thrusts: Evaluation of Nigerian local diets supplemented with soybean; Studies on extrusion cooking of indigenous foods for instant food production; and Roots and tuber processing for combating food insecurity and for value addition. As his contribution to the development of Food Science and Technology within and outside Nigeria, he has published over 70 articles, monographs and books in this wide disciplinary domain. Professor Maduebibisi Ofo Iwe is professional and Internationally Certified Food Scientist (CFS); Fellow of the Nigerian Institute of Food Science and Technology (FNIFST); Professional member of the Institute of Food Technologists Chicago, USA; member of the International Union of Food Science and Technologists (IUFoST); Professional member of the Institute of Public Analysts of Nigeria (IPAN); member of the Nigeria Soybean Association etc. He is a renowned Food Technology Consultant; now Vice chancellor, Michael Okpara University of Agriculture, Umudike.",
+                "Dr. Uchechukwu S. Ogah is a seasoned Accountant, Oil & Gas expert, consummate industrialist, finance guru, and philanthropist. He is the founder and former President of Masters Energy Group, a conglomerate comprising 15 subsidiaries spanning oil and gas, transport, finance, marine, logistics, and aviation. With over a decade-long career at Zenith Bank Group, he attained the position of Assistant-General Manager and garnered a reputation for achieving corporate growth. Dr. Ogah ventured into politics and secured the Abia Gubernatorial candidacy of the APC, finishing second in the 2019 polls.",
             },
           ],
           sessions: [
@@ -339,6 +319,27 @@ export default {
               to: "11:30",
               period: "AM",
               topic: "Marketing Matters",
+            },
+          ],
+        },
+        {
+          name: "Prof. Wilson Uchenna Ani",
+          position:
+            "Professor of Banking and Finance and Dean, College of Management Sciences",
+          imageURL: "assets/images/speakers/default-avatar.png",
+          details: [
+            {
+              detail:
+                "Prof. Wilson Uchenna Ani holds a Ph.D. in Banking and Finance from the University of Nigeria. He also holds a B.Sc. degree in Accountancy and two Masters degrees in Accountancy and Finance from the University of Nigeria and Nnamdi Azikiwe University, Awka respectively. He is a Fellow (FCA) of the Institute of Chartered Accountants of Nigeria (ICAN) and Chartered Institute of Taxation, Nigeria (CITN). Currently, he serves as a Professor of Banking and Finance and the Dean of the College of Management Sciences at Michael Okpara University of Agriculture, Umudike, Abia State. With a wealth of experience in academia, Prof. Ani has held various leadership positions including Head of Department of Banking and Finance at Michael Okpara University of Agriculture and Dean/Director of the School of Financial Studies at IMT, Enugu. He has authored over sixty academic articles published in reputable journals worldwide and has authored fifteen academic textbooks. Additionally, he is a visiting Professor/lecturer at various institutions and serves as an external examiner for several universities. His research interests include frontier finance issues, risk mitigation using derivatives instruments, and the rising roles of Artificial Intelligence in the financial sector. Prof. Ani is married with children and is committed to his Christian faith.",
+            },
+          ],
+          sessions: [
+            {
+              day: "",
+              from: "",
+              to: "",
+              period: "",
+              topic: "",
             },
           ],
         },
