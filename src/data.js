@@ -1336,6 +1336,7 @@ export default {
     "CBN CHAPTER",
     "EKPOMA & DISTRICT",
     "EKET & DISTRICT SOCIETY",
+    "ENUGU & DISTRICT",
     "EPE & DISTRICT",
     "FIDELITY BANK PLC CHAPTER",
     "GOMBE & DISTRICT",
