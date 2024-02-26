@@ -263,7 +263,7 @@ export default {
         {
           name: "NGOZI ANGELA OGWO - PhD",
           position: "Managing Partner/CEO, Grant Thornton Nigeria",
-          imageURL: "assets/images/speakers/ngozi.png",
+          imageURL: "assets/images/speakers/ngozi-ngwo.png",
           details: [
             {
               detail:
@@ -326,7 +326,7 @@ export default {
           name: "Prof. Wilson Uchenna Ani",
           position:
             "Professor of Banking and Finance and Dean, College of Management Sciences",
-          imageURL: "assets/images/speakers/default-avatar.png",
+          imageURL: "assets/images/speakers/proffesor.png",
           details: [
             {
               detail:
