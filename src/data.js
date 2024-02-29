@@ -284,7 +284,7 @@ export default {
         {
           name: "Prof. Babatunde Bayodele Olofin",
           position: "Director of Information and Communication Technology Centre (ICTC)",
-          imageURL: "assets/images/speakers/prof-olofin.png",
+          imageURL: "assets/images/speakers/proffesor.png",
           details: [
             {
               detail:
@@ -326,7 +326,7 @@ export default {
           name: "Prof. Wilson Uchenna Ani",
           position:
             "Professor of Banking and Finance and Dean, College of Management Sciences",
-          imageURL: "assets/images/speakers/proffesor.png",
+          imageURL: "assets/images/speakers/prof-olofin.png",
           details: [
             {
               detail:
