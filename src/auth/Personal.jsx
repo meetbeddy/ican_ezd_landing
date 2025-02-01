@@ -138,8 +138,20 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 					required
 				/>
 			</Form.Group>
+			<Form.Group className='mb-3'>
+				<Form.Label htmlFor='memberCategory'>How are attending?</Form.Label>
+				<Form.Select
+					onChange={handleChange}
+					value={inputValue.venue}
+					name='venue'
+					required>
+					<option value=''>-SELECT VENUE-</option>
+					<option value='virtual'>Virtual</option>
+					<option value='physical'>Physical</option>
+				</Form.Select>
+			</Form.Group>
 
-			{inputValue.memberStatus === "member" && (
+			{((inputValue.memberStatus === "member") || (inputValue.venue === "physical")) && (
 				<Form.Group className='mb-3'>
 					<Form.Label htmlFor='memberCategory'>Shirt Size</Form.Label>
 					<Form.Select
@@ -156,18 +168,7 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 					</Form.Select>
 				</Form.Group>
 			)}
-			<Form.Group className='mb-3'>
-				<Form.Label htmlFor='memberCategory'>How are attending?</Form.Label>
-				<Form.Select
-					onChange={handleChange}
-					value={inputValue.venue}
-					name='venue'
-					required>
-					<option value=''>-SELECT VENUE-</option>
-					<option value='virtual'>Virtual</option>
-					<option value='physical'>Physical</option>
-				</Form.Select>
-			</Form.Group>
+
 			<Form.Group className='mb-3' controlId='formBasicPassword'>
 				<Form.Label>Password</Form.Label>
 				<Form.Control

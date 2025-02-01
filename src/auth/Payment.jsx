@@ -2,7 +2,6 @@ import React from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
 import { DatePicker } from "antd";
-// import "antd/dist/reset.css";
 
 function Payment({
 	handleSubmit,
@@ -14,36 +13,33 @@ function Payment({
 	loading,
 }) {
 	const [paymentMethod, setPaymentMethod] = React.useState(undefined);
-	let amount;
-	if (inputValue.venue === "virtual") {
-		amount = 30000;
-	} else {
-		if (inputValue.memberStatus === "nonmember") {
-			amount = 45000;
-		} else {
-			switch (inputValue.memberCategory) {
-				case "full-paying member":
-					amount = 40000;
+	const [paymentInitiated, setPaymentInitiated] = React.useState(false);
 
-					break;
-				case "young-accountants":
-					amount = 30000;
+	const calculateAmount = () => {
+		if (!inputValue) return 0;
 
-					break;
-				case "half-paying member":
-					amount = 20000;
-
-					break;
-				default:
-					amount = 0;
-					break;
-			}
+		if (inputValue.venue === "virtual") {
+			return 30000;
 		}
-	}
+
+		if (inputValue.memberStatus === "nonmember") {
+			return 60000;
+		}
+
+		const memberAmounts = {
+			"full-paying member": 50000,
+			"young-accountants": 35000,
+			"half-paying member": 30000
+		};
+
+		return memberAmounts[inputValue.memberCategory] || 0;
+	};
+
+	const amount = calculateAmount();
 
 	const config = {
 		reference: new Date().getTime().toString(),
-		email: inputValue.email,
+		email: inputValue?.email,
 		amount: amount * 100,
 		publicKey: process.env.REACT_APP_PAYSTACK,
 	};
@@ -53,13 +49,17 @@ function Payment({
 	});
 
 	const onClose = () => {
-		setPaymentMethod("direct");
+		// Reset payment method and initiated state when modal is closed
+		setPaymentMethod(undefined);
+		setPaymentInitiated(false);
 	};
 
 	const handlePaymentMethod = (e) => {
-		setPaymentMethod(e.target.value);
+		const selectedMethod = e.target.value;
+		setPaymentMethod(selectedMethod);
 
-		if (e.target.value === "online") {
+		if (selectedMethod === "online") {
+			setPaymentInitiated(true);
 			initializePayment((res) => {
 				onSuccess(res);
 			}, onClose);
@@ -68,78 +68,79 @@ function Payment({
 
 	return (
 		<Form onSubmit={handleSubmit}>
-			<div className='mb-3'>
-				<Button variant='success' onClick={() => setStep(1)}>
+			<div className="mb-3">
+				<Button variant="success" onClick={() => setStep(1)}>
 					back
-					<span className='ms-2'>
-						<i className='bi bi-skip-backward'></i>
+					<span className="ms-2">
+						<i className="bi bi-skip-backward"></i>
 					</span>
 				</Button>
 			</div>
-			<Form.Group className='mb-3'>
-				<Form.Label htmlFor='memberStatus'>Payment Channel</Form.Label>
+			<Form.Group className="mb-3">
+				<Form.Label htmlFor="paymentMethod">Payment Channel</Form.Label>
 				<Form.Select
-					onChange={(e) => {
-						handlePaymentMethod(e);
-					}}
-					value={paymentMethod}
-					name='paymentMethod'
-					disabled={paymentMethod}
-					required>
-					<option value=''>-SELECT STATUS-</option>
-					<option value='direct'>Direct Lodgement/Transfer</option>
-					<option value='online' disabled>Online Payment</option>
+					onChange={handlePaymentMethod}
+					value={paymentMethod || ''}
+					name="paymentMethod"
+					disabled={paymentInitiated && inputValue?.paymentSuccess}
+					required
+				>
+					<option value="">-SELECT PAYMENT METHOD-</option>
+					<option value="direct">Direct Lodgement/Transfer</option>
+					<option value="online">Online Payment</option>
 				</Form.Select>
 			</Form.Group>
 			{(paymentMethod === "direct" || inputValue?.paymentSuccess) && (
 				<>
-					<div className='mb-3 row'>
+					<div className="mb-3 row">
 						<Button
-							variant='secondary'
-							type='button'
-							value='online'
-							onClick={handlePaymentMethod}
-							// disabled={inputValue.paymentSuccess}
-							disabled
+							variant="secondary"
+							type="button"
+							value="online"
+							onClick={() => {
+								setPaymentMethod("online");
+								handlePaymentMethod({ target: { value: "online" } });
+							}}
+							disabled={inputValue?.paymentSuccess}
 						>
 							Use Online payment Instead{" "}
-							<span className='ms-2'>
-								<i class='bi bi-credit-card'></i>
+							<span className="ms-2">
+								<i className="bi bi-credit-card"></i>
 							</span>
 						</Button>
 						{paymentMethod === "direct" && (
-							<Alert variant='info' className='mt-2'>
-								Please Pay <em>₦{amount}</em> to Zenith Bank, Account Number
-								1229063447
+							<Alert variant="info" className="mt-2">
+								Please Pay <em>₦{amount.toLocaleString()}</em> to Zenith Bank, Account Number
+								1015593246, Account Name: ICAN Eastern Zonal District
 							</Alert>
 						)}
 					</div>
-					<Form.Group className='mb-3' controlId='formBasicEmail'>
+					<Form.Group className="mb-3" controlId="bankName">
 						<Form.Label>Bank Paid From</Form.Label>
 						<Form.Control
-							type='text'
+							type="text"
 							onChange={handleChange}
-							placeholder='enter name of bank'
-							name='bankName'
-							value={inputValue.bankName}
+							placeholder="enter name of bank"
+							name="bankName"
+							value={inputValue.bankName || ''}
 							disabled={inputValue.paymentSuccess}
 							required
 						/>
 					</Form.Group>
-					<Form.Group className='mb-3' controlId='formBasicEmail'>
+					<Form.Group className="mb-3" controlId="tellerNumber">
 						<Form.Label>Transaction ID</Form.Label>
 						<Form.Control
-							type='text'
+							type="text"
 							onChange={handleChange}
-							placeholder='transaction id or name of payer'
-							name='tellerNumber'
-							value={inputValue.tellerNumber}
+							placeholder="transaction id or name of payer"
+							name="tellerNumber"
+							value={inputValue.tellerNumber || ''}
 							disabled={inputValue.paymentSuccess}
 							required
 						/>
 					</Form.Group>
 
-					<Form.Group className='mb-3' controlId='formBasicEmail'>
+					<Form.Group className="mb-3" controlId="tellerDate">
 						<Form.Label>Teller/Transfer Date</Form.Label>
 						<DatePicker
 							showTime
@@ -148,15 +149,15 @@ function Payment({
 						/>
 					</Form.Group>
 
-					<div className='d-grid'>
-						<Button variant='primary' type='submit'>
+					<div className="d-grid">
+						<Button variant="primary" type="submit">
 							{loading && (
 								<Spinner
-									as='span'
-									animation='grow'
-									size='sm'
-									role='status'
-									aria-hidden='true'
+									as="span"
+									animation="grow"
+									size="sm"
+									role="status"
+									aria-hidden="true"
 								/>
 							)}
 							Register

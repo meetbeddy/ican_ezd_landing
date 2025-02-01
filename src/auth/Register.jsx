@@ -10,6 +10,7 @@ import Payment from "./Payment";
 import dayjs from "dayjs";
 import { ican } from "../api/axios";
 import data from "../data";
+import Swal from "sweetalert2";
 
 function Register() {
 	const [inputValue, setInputValue] = React.useState({
@@ -33,8 +34,8 @@ function Register() {
 	});
 	const [step, setStep] = React.useState(1);
 	const [loading, setLoading] = React.useState(false);
-	const [error, setError] = React.useState();
-	const navigate = useNavigate();
+	// const [error, setError] = React.useState();
+	// const navigate = useNavigate();
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -80,12 +81,23 @@ function Register() {
 		try {
 			const res = await ican.post("/api/user/auth/signup", dataToSend);
 			if (res.data.success) setLoading(false);
-			toast.success(res.data.message);
-			navigate("/reg-success");
+			Swal.fire({
+				icon: "success",
+				title: "Registration Successful",
+				text: "You have successfully registered for the conference",
+				timer: 3000,
+			}).then(() => {
+				window.location.href = "https://admin.icanezdconference.org.ng/login";
+			});
 		} catch (err) {
-			// console.log(err.response);
 			setLoading(false);
-			toast.error(err.response.data.message);
+
+			const message = Object.values(err.response.data)[0];
+			Swal.fire({
+				icon: "error",
+				title: "Registration failed",
+				text: message,
+			});
 		}
 	};
 
