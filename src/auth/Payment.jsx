@@ -86,7 +86,7 @@ function Payment({
 					required
 				>
 					<option value="">-SELECT PAYMENT METHOD-</option>
-					<option value="direct">Direct Lodgement/Transfer</option>
+					<option value="direct" disabled>Direct Lodgement/Transfer</option>
 					<option value="online">Online Payment</option>
 				</Form.Select>
 			</Form.Group>
