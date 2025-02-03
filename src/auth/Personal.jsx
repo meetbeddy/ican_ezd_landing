@@ -158,6 +158,7 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 						onChange={handleChange}
 						value={inputValue.tshirtSize}
 						name='tshirtSize'
+						disabled
 						required>
 						<option value=''>-SELECT SHIRT SIZE-</option>
 						<option value='S'>Small (S)</option>
