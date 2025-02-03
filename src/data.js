@@ -10,45 +10,45 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
-        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
-        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
-        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
-        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
-        year: "18TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Monday 4th - Thursday 7th March, 2024",
+          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -57,7 +57,7 @@ export default {
       // flier: flier,
       year: "Current Year",
       theme:
-        "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
       details: [
         {
           detail:
@@ -535,9 +535,9 @@ export default {
 
     travelInfo: {
       theme:
-        "ARTIFICIAL INTELLIGENCE AND ROBOTICS: CATALYSTS FOR ECONOMIC GROWTH IN EMERGING ECONOMIES",
+        "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
       venue:
-        "The 18TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
+        "The 19TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
       transport:
         "Attendees who would not be staying around the conference venue are advised to include a little extra budget for their daily transport.",
       hotel:
