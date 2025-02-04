@@ -22,7 +22,7 @@ function Register() {
 		tellerNumber: "",
 		phone: "",
 		gender: "",
-		tshirtSize: "XL",
+		tshirtSize: "L",
 		memberStatus: "",
 		confirm_password: "",
 		icanCode: "",
