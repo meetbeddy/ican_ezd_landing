@@ -12,7 +12,7 @@ function AboutSection() {
                 For the year 2025, the conference theme is “Beyond Nigeria’s Economic Crisis: Unlocking Opportunities For Growth.”.
                 There are also two captivating sub-themes slated for Day’s 1 & 2
                 of the conference. The Conference host and Chairman of Eastern
-                Zonal Districts – Dr. Kingsley Sunday Oyekezie FCA together
+                Zonal Districts – Dr. Sylvanus Ailegbo Izebhokhae FCA together
                 with his Executive and other planning Committee Members have
                 attracted seasoned technocrats and captains of industries to
                 anchor and moderate these taught provoking topics that will
