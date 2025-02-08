@@ -800,38 +800,38 @@ export default {
   },
   presidency: [
     {
-      name: "Dr. Innocent Iweka Okwuosa, FCA",
+      name: "Davidson Chizuoke. S. Alaribe (Chief) MA,CFA, MNIM, FCA",
       position: "PRESIDENT",
-      imageURL: "assets/images/presidency/president.png",
+      imageURL: "assets/images/presidency/president.jpg",
     },
     {
-      name: "Chief Davidson C. S. Alaribe, FCA",
+      name: "Haruna Yahaya (Mallam) mni, BSc, MBA, ANIM, FCA",
       position: "VICE-PRESIDENT",
-      imageURL: "assets/images/presidency/vice-president.png",
-    },
-    {
-      name: "Mallam Haruna Nma Yahaya, mni, FCA",
-      position: "1ST DEPUTY VICE-PRESIDENT",
-      imageURL:
-        "assets/images/presidency/first-deputy-vice.png",
+      imageURL: "assets/images/presidency/vice-president.jpg",
     },
     {
       name: "Queensley Sofuratu Seghosime, mni, FCA,",
-      position: "2ND DEPUTY VICE-PRESIDENT",
-      imageURL: "assets/images/presidency/second-deputy-vice.png",
+      position: "1ST DEPUTY VICE-PRESIDENT",
+      imageURL:
+        "assets/images/presidency/first-deputy-vice.jpg",
     },
     {
-      name: "Mallam Tijjani Musa Isa MIoD, FCA",
+      name: "Etofolam F. Osuji (Dr) mni, MSc, FCA",
+      position: "2ND DEPUTY VICE-PRESIDENT",
+      imageURL: "assets/images/presidency/second-deputy-vice.jpg",
+    },
+    {
+      name: "Innocent Iweka Okwuosa PhD, CPFA, FCIB, FCA",
       position: "IMMEDIATE PAST PRESIDENT",
       imageURL:
-        "assets/images/presidency/immidiate-past-president.png",
+        "assets/images/presidency/immidiate-past-president.jpg",
     },
 
     {
-      name: "Abiola Oluwatobi Ayodele HND, BSc, FCA",
+      name: "Oluseyi Olanrewaju MBA, PhD, FCA",
       position: "HONOURARY TREASURER",
       imageURL:
-        "assets/images/presidency/honorary-treasurer.png",
+        "assets/images/presidency/honorary-treasurer.jpg",
     },
     {
       name: "Musibau Lanre Olasunkanmi, Phd, FCA",
