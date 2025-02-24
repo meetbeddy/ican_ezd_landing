@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import PageWrapper from "../landing/pages/PageWrapper";
 import { Card, Col, Container, Row } from "react-bootstrap";
-import { ToastContainer, toast } from "react-toastify";
-import { Spin } from "antd";
-
-import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import { Link } from "react-router-dom";
 import Personal from "./Personal";
 import Payment from "./Payment";
 import dayjs from "dayjs";
@@ -13,7 +11,7 @@ import data from "../data";
 import Swal from "sweetalert2";
 
 function Register() {
-	const [inputValue, setInputValue] = React.useState({
+	const [inputValue, setInputValue] = useState({
 		surname: "",
 		otherNames: "",
 		email: "",
@@ -32,16 +30,15 @@ function Register() {
 		tellerDate: "",
 		venue: "",
 	});
-	const [step, setStep] = React.useState(1);
-	const [loading, setLoading] = React.useState(false);
-	// const [error, setError] = React.useState();
-	// const navigate = useNavigate();
+	const [step, setStep] = useState(1);
+	const [loading, setLoading] = useState(false);
+	const [paymentProofFile, setPaymentProofFile] = useState(null);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
-
 		setInputValue((values) => ({ ...values, [name]: value }));
 	};
+
 	const onDateChange = (date, dateString) => {
 		setInputValue({ ...inputValue, tellerDate: dateString, date });
 	};
@@ -49,13 +46,17 @@ function Register() {
 	const onPaymentSuccess = (res) => {
 		setInputValue({
 			...inputValue,
-
 			bankName: "paystack transaction",
 			tellerNumber: res.reference,
 			tellerDate: dayjs().format("YYYY-MM-DD H:mm:ss"),
 			paymentSuccess: true,
 		});
 	};
+
+	const handleFileUpload = (file) => {
+		setPaymentProofFile(file);
+	};
+
 	const handleNext = () => {
 		setStep(2);
 	};
@@ -65,34 +66,59 @@ function Register() {
 		setLoading(true);
 
 		let surname = inputValue.surname.toUpperCase();
-		let dataToSend = {
+
+		// Format ICAN code if provided
+		let formattedIcanCode = inputValue.icanCode;
+		if (inputValue.memberStatus === "member" && inputValue.icanCode) {
+			let mb = "MB";
+			let firstNumIndex = inputValue.icanCode.search(/\d/);
+			let slicedCode = inputValue.icanCode.slice(firstNumIndex);
+			let sequence = slicedCode + "";
+			while (sequence.length < 6) sequence = "0" + sequence;
+			formattedIcanCode = mb + sequence;
+		}
+
+		// Create FormData object for file upload
+		const formData = new FormData();
+
+		// Add all form fields to FormData
+		const dataToSend = {
 			...inputValue,
 			name: `${surname} ${inputValue.otherNames}`,
+			icanCode: formattedIcanCode
 		};
 
-		let mb = "MB";
-		let firstNumIndex = dataToSend.icanCode.search(/\d/);
-		let slicedCode = dataToSend.icanCode.slice(firstNumIndex);
+		Object.keys(dataToSend).forEach(key => {
+			formData.append(key, dataToSend[key]);
+		});
 
-		let sequence = slicedCode + "";
-		while (sequence.length < 6) sequence = "0" + sequence;
-		dataToSend.icanCode = mb + sequence;
+		// Add the file if it exists
+		if (paymentProofFile) {
+			formData.append("file", paymentProofFile);
+		}
 
 		try {
-			const res = await ican.post("/api/user/auth/signup", dataToSend);
-			if (res.data.success) setLoading(false);
-			Swal.fire({
-				icon: "success",
-				title: "Registration Successful",
-				text: "You have successfully registered for the conference",
-				timer: 3000,
-			}).then(() => {
-				window.location.href = "https://admin.icanezdconference.org.ng/login";
+			const res = await ican.post("/api/user/auth/signup", formData, {
+				headers: {
+					'Content-Type': 'multipart/form-data'
+				}
 			});
-		} catch (err) {
+
 			setLoading(false);
 
-			const message = Object.values(err.response.data)[0];
+			if (res.data.success) {
+				Swal.fire({
+					icon: "success",
+					title: "Registration Successful",
+					text: "You have successfully registered for the conference",
+					timer: 3000,
+				}).then(() => {
+					window.location.href = "https://admin.icanezdconference.org.ng/login";
+				});
+			}
+		} catch (err) {
+			setLoading(false);
+			const message = err.response?.data?.message || "Registration failed. Please try again.";
 			Swal.fire({
 				icon: "error",
 				title: "Registration failed",
@@ -104,7 +130,7 @@ function Register() {
 	return (
 		<PageWrapper>
 			<Container>
-				<Row className=' d-flex justify-content-center align-items-center text-dark'>
+				<Row className='d-flex justify-content-center align-items-center text-dark'>
 					<Col sm={7} md={7} lg={6} xl={4} xs={12}>
 						<Card className='shadow'>
 							<Card.Body>
@@ -132,10 +158,11 @@ function Register() {
 												onDateChange={onDateChange}
 												setStep={setStep}
 												loading={loading}
+												handleFileUpload={handleFileUpload}
 											/>
 										)}
 										<div className='mt-3'>
-											<p className='mb-0  text-center'>
+											<p className='mb-0 text-center'>
 												Already have an account?{" "}
 												<Link to='/login' className='text-primary fw-bold'>
 													Login

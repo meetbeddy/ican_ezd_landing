@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { usePaystackPayment } from "react-paystack";
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
-import { DatePicker } from "antd";
+import { DatePicker, Upload } from "antd";
+import { UploadOutlined } from '@ant-design/icons';
 
 function Payment({
 	handleSubmit,
@@ -11,9 +12,12 @@ function Payment({
 	onDateChange,
 	setStep,
 	loading,
+	handleFileUpload, // New prop for handling file upload
 }) {
-	const [paymentMethod, setPaymentMethod] = React.useState(undefined);
-	const [paymentInitiated, setPaymentInitiated] = React.useState(false);
+	const [paymentMethod, setPaymentMethod] = useState(undefined);
+	const [paymentInitiated, setPaymentInitiated] = useState(false);
+	const [fileList, setFileList] = useState([]);
+	const [fileError, setFileError] = useState("");
 
 	const calculateAmount = () => {
 		if (!inputValue) return 0;
@@ -57,6 +61,7 @@ function Payment({
 	const handlePaymentMethod = (e) => {
 		const selectedMethod = e.target.value;
 		setPaymentMethod(selectedMethod);
+		setFileError("");
 
 		if (selectedMethod === "online") {
 			setPaymentInitiated(true);
@@ -66,8 +71,57 @@ function Payment({
 		}
 	};
 
+	// Handle file change
+	const handleFileChange = ({ fileList }) => {
+		const newFileList = fileList.slice(-1);
+		setFileList(newFileList);
+
+		if (newFileList.length > 0) {
+			const file = newFileList[0].originFileObj;
+			// Validate file type
+			const isValidType = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'application/pdf'].includes(file.type);
+			if (!isValidType) {
+				setFileError("Please upload only JPG, PNG, WEBP or PDF files");
+				return;
+			}
+
+			// Validate file size (max 2MB)
+			if (file.size > 2 * 1024 * 1024) {
+				setFileError("File size must be less than 2MB");
+				return;
+			}
+
+			setFileError("");
+			handleFileUpload(file);
+		} else {
+			handleFileUpload(null);
+		}
+	};
+
+	const beforeUpload = (file) => {
+		// This prevents auto upload and lets us handle it manually
+		return false;
+	};
+
+	const validateForm = () => {
+		// Check if payment proof is required and uploaded
+		if (paymentMethod === "direct" && fileList.length === 0) {
+			setFileError("Please upload your payment proof");
+			return false;
+		}
+		return true;
+	};
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		if (!validateForm()) {
+			return;
+		}
+		handleSubmit(e);
+	};
+
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form onSubmit={onSubmit}>
 			<div className="mb-3">
 				<Button variant="success" onClick={() => setStep(1)}>
 					back
@@ -86,7 +140,7 @@ function Payment({
 					required
 				>
 					<option value="">-SELECT PAYMENT METHOD-</option>
-					<option value="direct" disabled>Direct Lodgement/Transfer</option>
+					<option value="direct">Direct Lodgement/Transfer</option>
 					<option value="online">Online Payment</option>
 				</Form.Select>
 			</Form.Group>
@@ -148,6 +202,35 @@ function Payment({
 							disabled={inputValue.paymentSuccess}
 						/>
 					</Form.Group>
+
+					{/* Payment Proof Upload */}
+					{paymentMethod === "direct" && (
+						<Form.Group className="mb-3" controlId="paymentProof">
+							<Form.Label>Upload Payment Proof</Form.Label>
+							<div className="upload-container">
+								<Upload
+									listType="picture"
+									fileList={fileList}
+									onChange={handleFileChange}
+									beforeUpload={beforeUpload}
+									maxCount={1}
+									accept=".jpg,.jpeg,.png,.webp,.pdf"
+									disabled={inputValue.paymentSuccess}
+								>
+									<Button
+										icon={<UploadOutlined />}
+										disabled={inputValue.paymentSuccess}
+									>
+										Select File
+									</Button>
+								</Upload>
+							</div>
+							{fileError && <div className="text-danger mt-2">{fileError}</div>}
+							<div className="form-text">
+								Upload payment receipt or transfer screenshot (JPG, PNG, WEBP or PDF, max 2MB)
+							</div>
+						</Form.Group>
+					)}
 
 					<div className="d-grid">
 						<Button variant="primary" type="submit">
