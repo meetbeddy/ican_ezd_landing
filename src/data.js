@@ -941,34 +941,34 @@ export default {
   ],
   executiveMembers: [
     {
-      name: "Dr. Kingsley Sunday Oyekezie, FCA",
+      name: "Dr. Sylvanus A. Izebhokhae FCA",
       position: "CHAIRMAN ",
-      imageURL: "assets/images/executive/chairman.jpg",
+      imageURL: "assets/images/executive/chairman.png",
     },
     {
-      name: "Ojeh Augustine, Ph.D, FCA",
+      name: "Nkiruka Okeke FCA",
       position: "VICE-CHAIRMAN",
-      imageURL: "assets/images/executive/vice-chairman.png",
+      imageURL: "assets/images/executive/vice_chairman.png",
     },
     {
-      name: "Samuel Asikogu, FCA, CFA",
+      name: "Obasi Ama Ibiam PhD, ACA",
       position: "SECRETARY",
       imageURL: "assets/images/executive/secretary.png",
     },
     {
-      name: "Emmanuel C. Modozie, FCA",
+      name: "Romanus Oshageny Abuguja HND, PGD, MSC, FCA",
       position: "TREASURER",
       imageURL: "assets/images/executive/treasurer.png",
     },
     {
-      name: "Gabriel Isu Idume, FCA",
+      name: "Prof Luke Chukwuka Chukwu FCA",
       position: "ASSISTANT ZONAL SECRETARY",
-      imageURL: "assets/images/executive/assistant-secretary.png",
+      imageURL: "assets/images/executive/assistant_secretary.png",
     },
     {
-      name: "CHIMA IJEOMA OKIKECHI FCA, ACTI",
+      name: "Dr. Kingsley Sunday Oyekezie, FCA",
       position: "IMMEDIATE PAST CHAIRMAN",
-      imageURL: "assets/images/executive/past-chairman.png",
+      imageURL: "assets/images/executive/past_chairman.png",
     },
     // {
     //   name: "ESTHER EBERCHUKWU UMAHI FCA",
