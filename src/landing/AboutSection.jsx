@@ -26,7 +26,7 @@ function AboutSection() {
               </a>
             </div>
           </div>
-          {/* <div className="col-xl-6 d-flex align-items-stretch">
+          <div className="col-xl-6 d-flex align-items-stretch">
             <div className="icon-boxes d-flex flex-column justify-content-center">
               <div className="row">
                 <div
@@ -34,8 +34,8 @@ function AboutSection() {
                   data-aos="fade-up"
                   data-aos-delay={100}
                 >
-                  <i className="bx bx-receipt" />
-                  <h4>Plenaries</h4>
+                  <img src="assets/conference-logo.jpg" className="w-100" alt="" />{" "}
+                  {/* <h4>Plenaries</h4>
                   <p className="text-justify">
                     Through increased advocacy for a sustainable and
                     economically empowered Nation, we work with the Youth
@@ -47,12 +47,12 @@ function AboutSection() {
                     <li>Development-focused research, </li>
                     <li>Youth Empowerment (leadership and business), and </li>
                     <li>Civic Engagements</li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </div>
-           
-          </div> */}
+
+          </div>
         </div>
       </div>
     </section>

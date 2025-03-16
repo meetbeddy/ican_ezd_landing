@@ -27,7 +27,7 @@ function AboutPage() {
           ))}
         </div>
         <div className="col-md-4">
-          <img src="assets/ican-ezd-flyer-25.jpg" className="w-100" alt="" />{" "}
+          <img src="assets/conference-flyer-25.jpg" className="w-100" alt="" />{" "}
         </div>
       </div>
     </PageWrapper>
