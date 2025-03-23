@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Speakers({ speakers }) {
   return (
@@ -36,6 +37,15 @@ function Speakers({ speakers }) {
               </div>
             );
           })}
+        </div>
+        <div className="text-center mt-4 mb-5">
+          <Link
+            to="/all-speakers"
+            className="btn btn-primary btn-lg"
+            aria-label="View all conference speakers and discussants"
+          >
+            View All Speakers & Discussants
+          </Link>
         </div>
       </div>
     </section>
