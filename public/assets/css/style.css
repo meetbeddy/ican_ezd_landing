@@ -8,6 +8,14 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+.bg-primary {
+	background-color: #3e4999 !important;
+}
+
+.btn-primary {
+	background-color: #3e4999 !important;
+	border: #0e1b4d !important;
+}
 body {
 	font-family: "Open Sans", sans-serif;
 	color: #444444;

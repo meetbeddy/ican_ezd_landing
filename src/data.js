@@ -264,9 +264,9 @@ export default {
       speakers: [
 
         {
-          name: "NGOZI ANGELA OGWO - PhD",
-          position: "Managing Partner/CEO, Grant Thornton Nigeria",
-          imageURL: "assets/images/speakers/ngozi-ngwo.png",
+          name: "LADY ADA CHUKWUDOZIE, NPOM, MNSE, FCSN, FIOD",
+          position: "Chairman, Board of Directors KeyStone Bank Ltd",
+          imageURL: "assets/images/speakers/ada-chukwudozie.jpg",
           details: [
             {
               detail:
@@ -285,9 +285,9 @@ export default {
         },
 
         {
-          name: "Prof. Babatunde Bayodele Olofin",
-          position: "Director of Information and Communication Technology Centre (ICTC)",
-          imageURL: "assets/images/speakers/proffesor.png",
+          name: "PROF. OTI WILBERFORCE OTU JOHN",
+          position: "Professor of Industrial and Analytical Chemistry,Ebonyi State University, Abakaliki, Ebonyi State Nigeria.",
+          imageURL: "assets/images/speakers/wilberforce-oti.png",
           details: [
             {
               detail:
@@ -305,10 +305,10 @@ export default {
           ],
         },
         {
-          name: "Dr. Uchechukwu S. Ogah, CON, FCA",
+          name: "Dr Vincent Nwani, Phd, Msc",
           position:
-            "Former Minister of Mines and Steel Development",
-          imageURL: "assets/images/speakers/uche-ogah.png",
+            "Director, Strategy and Business Intelligence, Safrik Investments Group",
+          imageURL: "assets/images/speakers/vincent-nwani.jpg",
           details: [
             {
               detail:
@@ -326,10 +326,10 @@ export default {
           ],
         },
         {
-          name: "Prof. Wilson Uchenna Ani",
+          name: "PROFESSOR OGBONNA GABRIEL NKWAZEMA’S",
           position:
-            "Professor of Banking and Finance and Dean, College of Management Sciences",
-          imageURL: "assets/images/speakers/prof-olofin.png",
+            "Professor of Accounting and Information Technology",
+          imageURL: "assets/images/speakers/gabriel-nkwazema.jpg",
           details: [
             {
               detail:
