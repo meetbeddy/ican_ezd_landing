@@ -76,7 +76,7 @@ function AllSpeakers() {
                 {
                     name: "Prof. Udochukwu Ogbonna",
                     position: "Discussant 3",
-                    imageURL: "assets/images/speakers/udochukwu-ogbonna.jpg"
+                    imageURL: "assets/images/speakers/udochukwu-ogbonnaya.jpg"
                 }
             ]
         },
@@ -86,7 +86,7 @@ function AllSpeakers() {
             mainSpeaker: {
                 name: "Prof. G. N. Ogbonnaya",
                 position: "Lead Speaker",
-                imageURL: "assets/images/speakers/gn-ogbonnaya.jpg"
+                imageURL: "assets/images/speakers/gabriel-nkwazema.jpg"
             },
             chairman: {
                 name: "Mr. Jude Egbo Mni FCA",
