@@ -11,28 +11,49 @@ import data from "../data";
 import Swal from "sweetalert2";
 
 function Register() {
-	const [inputValue, setInputValue] = useState({
-		surname: "",
-		otherNames: "",
-		email: "",
-		password: "",
-		bankName: "",
-		tellerNumber: "",
-		phone: "",
-		gender: "",
-		tshirtSize: "L",
-		memberStatus: "",
-		confirm_password: "",
-		icanCode: "",
-		memberCategory: "",
-		memberAcronym: "",
-		nameOfSociety: "",
-		tellerDate: "",
-		venue: "",
+
+	const [inputValue, setInputValue] = useState(() => {
+		const saved = localStorage.getItem("ican_registration");
+		return saved
+			? JSON.parse(saved)
+			: {
+				surname: "",
+				otherNames: "",
+				email: "",
+				password: "",
+				bankName: "",
+				tellerNumber: "",
+				phone: "",
+				gender: "",
+				tshirtSize: "L",
+				memberStatus: "",
+				confirm_password: "",
+				icanCode: "",
+				memberCategory: "",
+				memberAcronym: "",
+				nameOfSociety: "",
+				tellerDate: "",
+				venue: "",
+			};
 	});
+
 	const [step, setStep] = useState(1);
 	const [loading, setLoading] = useState(false);
 	const [paymentProofFile, setPaymentProofFile] = useState(null);
+
+	// Load saved registration data
+	React.useEffect(() => {
+		const savedData = localStorage.getItem("ican_registration");
+		if (savedData) {
+			const parsed = JSON.parse(savedData);
+			setInputValue(parsed);
+		}
+	}, []);
+
+	// Watch for changes and persist them
+	React.useEffect(() => {
+		localStorage.setItem("ican_registration", JSON.stringify(inputValue));
+	}, [inputValue]);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -161,6 +182,7 @@ function Register() {
 					text: "You have successfully registered for the conference",
 					timer: 3000,
 				}).then(() => {
+					localStorage.removeItem("ican_registration");
 					window.location.href = "https://admin.icanezdconference.org.ng/login";
 				});
 			}
