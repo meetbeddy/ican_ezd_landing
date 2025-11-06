@@ -1,7 +1,11 @@
-import React from "react";
-import { Button, Form } from "react-bootstrap";
+import { Eye, EyeOff } from "lucide-react";
+import React, { useState } from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 function Personal({ handleChange, handleSubmit, inputValue, districtSocieties }) {
+
+	const [showPassword, setShowPassword] = useState(false);
+	const [showConfirm, setShowConfirm] = useState(false);
 	return (
 		<Form >
 			<Form.Group className='mb-3'>
@@ -170,28 +174,48 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 				</Form.Group>
 			)}
 
-			<Form.Group className='mb-3' controlId='formBasicPassword'>
+			<Form.Group className="mb-3" controlId="formBasicPassword">
 				<Form.Label>Password</Form.Label>
-				<Form.Control
-					type='password'
-					onChange={handleChange}
-					placeholder='Password'
-					name='password'
-					value={inputValue.password}
-					required
-				/>
+				<InputGroup>
+					<Form.Control
+						type={showPassword ? "text" : "password"}
+						onChange={handleChange}
+						placeholder="Password"
+						name="password"
+						value={inputValue.password}
+						required
+					/>
+					<Button
+						variant="outline-secondary"
+						type="button"
+						onClick={() => setShowPassword(!showPassword)}
+						style={{ display: "flex", alignItems: "center", gap: "4px" }}
+					>
+						{showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+					</Button>
+				</InputGroup>
 			</Form.Group>
 
-			<Form.Group className='mb-3' controlId='formBasicPasswordconfirm'>
+			<Form.Group className="mb-3" controlId="formBasicPasswordconfirm">
 				<Form.Label>Confirm Password</Form.Label>
-				<Form.Control
-					type='password'
-					onChange={handleChange}
-					placeholder='Confirm Password'
-					name='confirm_password'
-					value={inputValue.confirm_password}
-					required
-				/>
+				<InputGroup>
+					<Form.Control
+						type={showConfirm ? "text" : "password"}
+						onChange={handleChange}
+						placeholder="Confirm Password"
+						name="confirm_password"
+						value={inputValue.confirm_password}
+						required
+					/>
+					<Button
+						variant="outline-secondary"
+						type="button"
+						onClick={() => setShowConfirm(!showConfirm)}
+						style={{ display: "flex", alignItems: "center", gap: "4px" }}
+					>
+						{showConfirm ? <EyeOff size={18} /> : <Eye size={18} />}
+					</Button>
+				</InputGroup>
 			</Form.Group>
 			<div className='d-grid'>
 				<Button variant='primary' onClick={handleSubmit}>
