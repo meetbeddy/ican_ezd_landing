@@ -12,7 +12,7 @@ function Payment({
 	onDateChange,
 	setStep,
 	loading,
-	handleFileUpload, // New prop for handling file upload
+	handleFileUpload,
 }) {
 	const [paymentMethod, setPaymentMethod] = useState(undefined);
 	const [paymentInitiated, setPaymentInitiated] = useState(false);

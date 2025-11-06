@@ -57,7 +57,55 @@ function Register() {
 		setPaymentProofFile(file);
 	};
 
+	const validatePersonalInfo = () => {
+		const {
+			surname,
+			otherNames,
+			email,
+			phone,
+			password,
+			confirm_password,
+			gender,
+			memberStatus,
+			venue
+		} = inputValue;
+
+		if (!surname || !otherNames || !email || !phone || !password || !confirm_password || !gender || !memberStatus || !venue) {
+			Swal.fire({
+				icon: "warning",
+				title: "Missing Information",
+				text: "Please complete all required fields before continuing.",
+			});
+			return false;
+		}
+
+		if (password !== confirm_password) {
+			Swal.fire({
+				icon: "error",
+				title: "Password Mismatch",
+				text: "Your passwords do not match.",
+			});
+			return false;
+		}
+
+		// additional checks for members
+		if (memberStatus === "member") {
+			const { icanCode, memberCategory, memberAcronym, nameOfSociety } = inputValue;
+			if (!icanCode || !memberCategory || !memberAcronym || !nameOfSociety) {
+				Swal.fire({
+					icon: "warning",
+					title: "Incomplete Member Details",
+					text: "Please fill in all ICAN member details.",
+				});
+				return false;
+			}
+		}
+
+		return true;
+	};
+
 	const handleNext = () => {
+		if (!validatePersonalInfo()) return;
 		setStep(2);
 	};
 

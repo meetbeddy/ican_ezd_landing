@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 
 function Personal({ handleChange, handleSubmit, inputValue, districtSocieties }) {
 	return (
-		<Form onSubmit={handleSubmit}>
+		<Form >
 			<Form.Group className='mb-3'>
 				<Form.Label htmlFor='memberStatus'>
 					Are you a member of ICAN?
@@ -194,7 +194,7 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 				/>
 			</Form.Group>
 			<div className='d-grid'>
-				<Button variant='primary' type='submit'>
+				<Button variant='primary' onClick={handleSubmit}>
 					Continue To Payment
 				</Button>
 			</div>
