@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { usePaystackPayment } from "react-paystack";
 import { Alert, Button, Form, Spinner } from "react-bootstrap";
 import { DatePicker, Upload } from "antd";
-import { UploadOutlined } from '@ant-design/icons';
+import { UploadOutlined } from "@ant-design/icons";
 
 function Payment({
 	handleSubmit,
@@ -33,7 +32,7 @@ function Payment({
 		const memberAmounts = {
 			"full-paying member": 50000,
 			"young-accountants": 35000,
-			"half-paying member": 30000
+			"half-paying member": 30000,
 		};
 
 		return memberAmounts[inputValue.memberCategory] || 0;
@@ -41,21 +40,41 @@ function Payment({
 
 	const amount = calculateAmount();
 
-	const config = {
-		reference: new Date().getTime().toString(),
-		email: inputValue?.email,
-		amount: amount * 100,
-		publicKey: process.env.REACT_APP_PAYSTACK,
-	};
-
-	const initializePayment = usePaystackPayment({
-		...config,
-	});
-
 	const onClose = () => {
-		// Reset payment method and initiated state when modal is closed
 		setPaymentMethod(undefined);
 		setPaymentInitiated(false);
+	};
+
+	const handleRemitaPayment = () => {
+		if (!window.RmPaymentEngine) {
+			console.error("Remita script not loaded");
+			alert("Payment service unavailable. Please refresh and try again.");
+			return;
+		}
+
+		const paymentEngine = window.RmPaymentEngine.init({
+			key: process.env.REACT_APP_REMITA_KEY,
+			transactionId: Date.now().toString(),
+			customerId: inputValue.email,
+			firstName: inputValue.otherNames || "Guest",
+			lastName: inputValue.surname || "",
+			email: inputValue.email,
+			amount,
+			narration: "ICAN Conference Registration",
+			onSuccess: (response) => {
+				console.log("Remita Success:", response);
+				onSuccess(response); // forward result to parent
+			},
+			onError: (response) => {
+				console.error("Remita Error:", response);
+			},
+			onClose: () => {
+				console.log("Payment closed");
+				setPaymentInitiated(false);
+			},
+		});
+
+		paymentEngine.showPaymentWidget();
 	};
 
 	const handlePaymentMethod = (e) => {
@@ -65,27 +84,28 @@ function Payment({
 
 		if (selectedMethod === "online") {
 			setPaymentInitiated(true);
-			initializePayment((res) => {
-				onSuccess(res);
-			}, onClose);
+			handleRemitaPayment();
 		}
 	};
 
-	// Handle file change
 	const handleFileChange = ({ fileList }) => {
 		const newFileList = fileList.slice(-1);
 		setFileList(newFileList);
 
 		if (newFileList.length > 0) {
 			const file = newFileList[0].originFileObj;
-			// Validate file type
-			const isValidType = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'application/pdf'].includes(file.type);
+			const isValidType = [
+				"image/jpeg",
+				"image/jpg",
+				"image/png",
+				"image/webp",
+				"application/pdf",
+			].includes(file.type);
 			if (!isValidType) {
 				setFileError("Please upload only JPG, PNG, WEBP or PDF files");
 				return;
 			}
 
-			// Validate file size (max 2MB)
 			if (file.size > 2 * 1024 * 1024) {
 				setFileError("File size must be less than 2MB");
 				return;
@@ -98,13 +118,9 @@ function Payment({
 		}
 	};
 
-	const beforeUpload = (file) => {
-		// This prevents auto upload and lets us handle it manually
-		return false;
-	};
+	const beforeUpload = () => false;
 
 	const validateForm = () => {
-		// Check if payment proof is required and uploaded
 		if (paymentMethod === "direct" && fileList.length === 0) {
 			setFileError("Please upload your payment proof");
 			return false;
@@ -114,9 +130,7 @@ function Payment({
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		if (!validateForm()) {
-			return;
-		}
+		if (!validateForm()) return;
 		handleSubmit(e);
 	};
 
@@ -130,20 +144,22 @@ function Payment({
 					</span>
 				</Button>
 			</div>
+
 			<Form.Group className="mb-3">
 				<Form.Label htmlFor="paymentMethod">Payment Channel</Form.Label>
 				<Form.Select
 					onChange={handlePaymentMethod}
-					value={paymentMethod || ''}
+					value={paymentMethod || ""}
 					name="paymentMethod"
 					disabled={paymentInitiated && inputValue?.paymentSuccess}
 					required
 				>
 					<option value="">-SELECT PAYMENT METHOD-</option>
 					<option value="direct">Direct Lodgement/Transfer</option>
-					<option value="online">Online Payment</option>
+					<option value="online">Online Payment (Remita)</option>
 				</Form.Select>
 			</Form.Group>
+
 			{(paymentMethod === "direct" || inputValue?.paymentSuccess) && (
 				<>
 					<div className="mb-3 row">
@@ -162,13 +178,16 @@ function Payment({
 								<i className="bi bi-credit-card"></i>
 							</span>
 						</Button>
+
 						{paymentMethod === "direct" && (
 							<Alert variant="info" className="mt-2">
-								Please Pay <em>₦{amount.toLocaleString()}</em> to Zenith Bank, Account Number
-								1015593246, Account Name: ICAN Eastern Zonal District
+								Please Pay <em>₦{amount.toLocaleString()}</em> to Zenith Bank,
+								Account Number 1015593246, Account Name: ICAN Eastern Zonal
+								District
 							</Alert>
 						)}
 					</div>
+
 					<Form.Group className="mb-3" controlId="bankName">
 						<Form.Label>Bank Paid From</Form.Label>
 						<Form.Control
@@ -176,11 +195,12 @@ function Payment({
 							onChange={handleChange}
 							placeholder="enter name of bank"
 							name="bankName"
-							value={inputValue.bankName || ''}
+							value={inputValue.bankName || ""}
 							disabled={inputValue.paymentSuccess}
 							required
 						/>
 					</Form.Group>
+
 					<Form.Group className="mb-3" controlId="tellerNumber">
 						<Form.Label>Transaction ID</Form.Label>
 						<Form.Control
@@ -188,7 +208,7 @@ function Payment({
 							onChange={handleChange}
 							placeholder="transaction id or name of payer"
 							name="tellerNumber"
-							value={inputValue.tellerNumber || ''}
+							value={inputValue.tellerNumber || ""}
 							disabled={inputValue.paymentSuccess}
 							required
 						/>
@@ -203,7 +223,6 @@ function Payment({
 						/>
 					</Form.Group>
 
-					{/* Payment Proof Upload */}
 					{paymentMethod === "direct" && (
 						<Form.Group className="mb-3" controlId="paymentProof">
 							<Form.Label>Upload Payment Proof</Form.Label>
@@ -227,7 +246,8 @@ function Payment({
 							</div>
 							{fileError && <div className="text-danger mt-2">{fileError}</div>}
 							<div className="form-text">
-								Upload payment receipt or transfer screenshot (JPG, PNG, WEBP or PDF, max 2MB)
+								Upload payment receipt or transfer screenshot (JPG, PNG, WEBP or
+								PDF, max 2MB)
 							</div>
 						</Form.Group>
 					)}
