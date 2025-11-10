@@ -67,10 +67,11 @@ function Register() {
 	const onPaymentSuccess = (res) => {
 		setInputValue({
 			...inputValue,
-			bankName: "paystack transaction",
-			tellerNumber: res.reference,
+			bankName: "remita transaction",
+			tellerNumber: res.paymentReference,
 			tellerDate: dayjs().format("YYYY-MM-DD H:mm:ss"),
 			paymentSuccess: true,
+			amountPaid: res.amount,
 		});
 	};
 
