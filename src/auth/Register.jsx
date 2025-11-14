@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PageWrapper from "../landing/pages/PageWrapper";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, ProgressBar } from "react-bootstrap";
 import { ToastContainer } from "react-toastify";
 import { Link } from "react-router-dom";
 import Personal from "./Personal";
@@ -11,7 +11,6 @@ import data from "../data";
 import Swal from "sweetalert2";
 
 function Register() {
-
 	const [inputValue, setInputValue] = useState(() => {
 		const saved = localStorage.getItem("ican_registration");
 		return saved
@@ -41,7 +40,6 @@ function Register() {
 	const [loading, setLoading] = useState(false);
 	const [paymentProofFile, setPaymentProofFile] = useState(null);
 
-	// Load saved registration data
 	React.useEffect(() => {
 		const savedData = localStorage.getItem("ican_registration");
 		if (savedData) {
@@ -50,7 +48,6 @@ function Register() {
 		}
 	}, []);
 
-	// Watch for changes and persist them
 	React.useEffect(() => {
 		localStorage.setItem("ican_registration", JSON.stringify(inputValue));
 	}, [inputValue]);
@@ -110,7 +107,6 @@ function Register() {
 			return false;
 		}
 
-		// additional checks for members
 		if (memberStatus === "member") {
 			const { icanCode, memberCategory, memberAcronym, nameOfSociety } = inputValue;
 			if (!icanCode || !memberCategory || !memberAcronym || !nameOfSociety) {
@@ -137,7 +133,6 @@ function Register() {
 
 		let surname = inputValue.surname.toUpperCase();
 
-		// Format ICAN code if provided
 		let formattedIcanCode = inputValue.icanCode;
 		if (inputValue.memberStatus === "member" && inputValue.icanCode) {
 			let mb = "MB";
@@ -148,10 +143,8 @@ function Register() {
 			formattedIcanCode = mb + sequence;
 		}
 
-		// Create FormData object for file upload
 		const formData = new FormData();
 
-		// Add all form fields to FormData
 		const dataToSend = {
 			...inputValue,
 			name: `${surname} ${inputValue.otherNames}`,
@@ -162,7 +155,6 @@ function Register() {
 			formData.append(key, dataToSend[key]);
 		});
 
-		// Add the file if it exists
 		if (paymentProofFile) {
 			formData.append("file", paymentProofFile);
 		}
@@ -198,52 +190,92 @@ function Register() {
 		}
 	};
 
+	const progress = (step / 2) * 100;
+
 	return (
 		<PageWrapper>
-			<Container>
-				<Row className='d-flex justify-content-center align-items-center text-dark'>
-					<Col sm={7} md={7} lg={6} xl={4} xs={12}>
-						<Card className='shadow'>
-							<Card.Body>
-								<div className='mb-3 mt-md-4'>
-									<div className='text-center'>
-										<h3 className='mt-3 mb-4 text-dark'>
-											Register for Conference
-										</h3>
+			<Container className="py-4 py-md-5">
+				<Row className='d-flex justify-content-center'>
+					<Col xs={12} sm={11} md={10} lg={8} xl={6}>
+						<Card className='border-0 shadow-lg rounded-4'>
+							<Card.Body className="p-4 p-md-5">
+								{/* Header */}
+								<div className='text-center mb-4'>
+									<div className="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle mb-3" style={{ width: '64px', height: '64px' }}>
+										<i className="bi bi-calendar-event text-primary" style={{ fontSize: '32px' }}></i>
 									</div>
-									<div className='mb-3'>
-										{step === 1 && (
-											<Personal
-												inputValue={inputValue}
-												handleChange={handleChange}
-												handleSubmit={handleNext}
-												districtSocieties={data.districtSocieties}
+									<h2 className='fw-bold text-dark mb-2'>
+										Conference Registration
+									</h2>
+									<p className="text-muted mb-0">
+										Complete your registration in 2 simple steps
+									</p>
+								</div>
+
+								{/* Progress Indicator */}
+								<div className="mb-4">
+									<div className="d-flex justify-content-between align-items-center mb-2">
+										<span className={`badge ${step === 1 ? 'bg-primary' : 'bg-success'} rounded-pill px-3 py-2`}>
+											<i className="bi bi-person-fill me-1"></i>
+											Personal Info
+										</span>
+										<div className="flex-grow-1 mx-3">
+											<ProgressBar
+												now={progress}
+												className="rounded-pill"
+												style={{ height: '6px' }}
 											/>
-										)}
-										{step === 2 && (
-											<Payment
-												inputValue={inputValue}
-												handleChange={handleChange}
-												handleSubmit={handleSubmit}
-												onSuccess={onPaymentSuccess}
-												onDateChange={onDateChange}
-												setStep={setStep}
-												loading={loading}
-												handleFileUpload={handleFileUpload}
-											/>
-										)}
-										<div className='mt-3'>
-											<p className='mb-0 text-center'>
-												Already have an account?{" "}
-												<Link to='/login' className='text-primary fw-bold'>
-													Login
-												</Link>
-											</p>
 										</div>
+										<span className={`badge ${step === 2 ? 'bg-primary' : 'bg-secondary'} rounded-pill px-3 py-2`}>
+											<i className="bi bi-credit-card-fill me-1"></i>
+											Payment
+										</span>
 									</div>
+								</div>
+
+								{/* Form Content */}
+								<div className='mb-4'>
+									{step === 1 && (
+										<Personal
+											inputValue={inputValue}
+											handleChange={handleChange}
+											handleSubmit={handleNext}
+											districtSocieties={data.districtSocieties}
+										/>
+									)}
+									{step === 2 && (
+										<Payment
+											inputValue={inputValue}
+											handleChange={handleChange}
+											handleSubmit={handleSubmit}
+											onSuccess={onPaymentSuccess}
+											onDateChange={onDateChange}
+											setStep={setStep}
+											loading={loading}
+											handleFileUpload={handleFileUpload}
+										/>
+									)}
+								</div>
+
+								{/* Footer */}
+								<div className='text-center pt-3 border-top'>
+									<p className='mb-0 text-muted'>
+										Already have an account?{" "}
+										<Link to='/login' className='text-primary fw-semibold text-decoration-none'>
+											Sign in here
+										</Link>
+									</p>
 								</div>
 							</Card.Body>
 						</Card>
+
+						{/* Help Text */}
+						<div className="text-center mt-3">
+							<small className="text-muted">
+								<i className="bi bi-shield-check me-1"></i>
+								Your information is secure and encrypted
+							</small>
+						</div>
 					</Col>
 				</Row>
 			</Container>
