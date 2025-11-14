@@ -22,17 +22,18 @@ function Payment({
 		if (!inputValue) return 0;
 
 		if (inputValue.venue === "virtual") {
-			return 30000;
+			return 25000;
 		}
 
 		if (inputValue.memberStatus === "nonmember") {
-			return 60000;
+			return 70000;
 		}
 
 		const memberAmounts = {
-			"full-paying member": 50000,
-			"young-accountants": 35000,
-			"half-paying member": 30000,
+			"full-paying member": 60000,
+			"young-accountants": 40000,
+			"half-paying member": 45000,
+			"student-member": 30000,
 		};
 
 		return memberAmounts[inputValue.memberCategory] || 0;

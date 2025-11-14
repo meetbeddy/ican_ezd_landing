@@ -26,17 +26,6 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 			</Form.Group>
 			{inputValue.memberStatus === "member" && (
 				<>
-					<Form.Group className='mb-3' controlId='formBasicEmail'>
-						<Form.Label>ICAN Membership Number</Form.Label>
-						<Form.Control
-							type='text'
-							onChange={handleChange}
-							placeholder='MBXXXXXX'
-							name='icanCode'
-							value={inputValue.icanCode}
-							required
-						/>
-					</Form.Group>
 					<Form.Group className='mb-3'>
 						<Form.Label htmlFor='memberCategory'>Member Category</Form.Label>
 						<Form.Select
@@ -50,7 +39,19 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 							<option value='half-paying member'>
 								DISTRICT SOCIETY CHAIRMEN /SECRETARIES
 							</option>
+							<option value='student-member'>STUDENT MEMBER</option>
 						</Form.Select>
+					</Form.Group>
+					<Form.Group className='mb-3' controlId='formBasicEmail'>
+						<Form.Label>ICAN Membership Number</Form.Label>
+						<Form.Control
+							type='text'
+							onChange={handleChange}
+							placeholder='MBXXXXXX'
+							name='icanCode'
+							value={inputValue.icanCode}
+							required
+						/>
 					</Form.Group>
 					<Form.Group className='mb-3'>
 						<Form.Label htmlFor='memberAcronym'>Member Acronym</Form.Label>
@@ -63,6 +64,7 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 							<option value=''>-SELECT THE SUITABLE ACRONYM-</option>
 							<option value='ACA'>ACA</option>
 							<option value='FCA'>FCA</option>
+							{/* <option value='ACMA'>ACMA</option> */}
 						</Form.Select>
 					</Form.Group>
 					<Form.Group className='mb-3'>
