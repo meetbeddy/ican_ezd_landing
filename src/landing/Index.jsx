@@ -22,11 +22,11 @@ function Index() {
     <>
       <Header />
       <Hero data={landingPageData.Hero} />
-      <AboutSection />
-      <Speakers speakers={data.landingPage.speakers.speakers} />
+      {/* <AboutSection />
+      <Speakers speakers={data.landingPage.speakers.speakers} /> */}
       {/* <Schedule days={data.landingPage.schedules.days} /> */}
-      <TravelInformation />
-      <Hotels hotels={data.hotels} />
+      {/* <TravelInformation />
+      <Hotels hotels={data.hotels} /> */}
       <ContactSection />
       <Footer />
     </>
