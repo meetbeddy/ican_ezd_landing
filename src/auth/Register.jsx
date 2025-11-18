@@ -72,6 +72,15 @@ function Register() {
 		});
 	};
 
+	const rrrGenerated = (data) => {
+		setInputValue({
+			...inputValue,
+			tellerNumber: data.rrr,
+			rrrGenerated: true,
+		});
+
+	}
+
 	const handleFileUpload = (file) => {
 		setPaymentProofFile(file);
 	};
@@ -253,6 +262,7 @@ function Register() {
 											setStep={setStep}
 											loading={loading}
 											handleFileUpload={handleFileUpload}
+											onRrrGenerated={rrrGenerated}
 										/>
 									)}
 								</div>

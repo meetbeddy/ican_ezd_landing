@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Alert, Button, Form, Spinner, Card, Row, Col, Badge } from "react-bootstrap";
 import { DatePicker, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
+import { ican } from "../api/axios";
+import { AlertCircle, Building2, CheckCircle, Copy, CreditCard } from "lucide-react";
 
 function Payment({
 	handleSubmit,
@@ -12,11 +14,24 @@ function Payment({
 	setStep,
 	loading,
 	handleFileUpload,
+	onRrrGenerated
 }) {
-	const [paymentMethod, setPaymentMethod] = useState(undefined);
+
+	const [paymentMethod, setPaymentMethod] = useState("");
+	const [generatingRRR, setGeneratingRRR] = useState(false);
+	const [rrrGenerated, setRrrGenerated] = useState(inputValue.rrrGenerated || false);
+	const [rrrDetails, setRrrDetails] = useState(inputValue.tellerNumber ? {
+		rrr: inputValue.tellerNumber,
+		amount: inputValue.amountPaid || 0
+	} : null);
+	const [copiedRRR, setCopiedRRR] = useState(false);
+	const [selectedFile, setSelectedFile] = useState(null);
+	const [verifyingPayment, setVerifyingPayment] = useState(false);
+
 	const [paymentInitiated, setPaymentInitiated] = useState(false);
 	const [fileList, setFileList] = useState([]);
 	const [fileError, setFileError] = useState("");
+
 
 	const calculateAmount = () => {
 		if (!inputValue) return 0;
@@ -41,22 +56,28 @@ function Payment({
 
 	const amount = calculateAmount();
 
-	const handleRemitaPayment = () => {
+	const proceedWithInlinePayment = () => {
+		console.log(inputValue);
 		if (!window.RmPaymentEngine) {
 			console.error("Remita script not loaded");
 			alert("Payment service unavailable. Please refresh and try again.");
 			return;
 		}
 
+		const rrr = inputValue.rrrGenerated ? inputValue.tellerNumber : rrrDetails.rrr;
+
+		if (!rrr) {
+			alert("RRR not found. Please generate RRR first.");
+			return;
+		}
+
 		const paymentEngine = window.RmPaymentEngine.init({
 			key: process.env.REACT_APP_REMITA_KEY,
-			transactionId: Date.now().toString(),
-			customerId: inputValue.email,
-			firstName: inputValue.otherNames || "Guest",
-			lastName: inputValue.surname || "",
-			email: inputValue.email,
-			amount,
-			narration: "ICAN Conference Registration",
+			processRrr: true,
+			transactionId: rrr,
+			extendedData: {
+				customFields: [{ name: "rrr", value: rrr }]
+			},
 			onSuccess: (response) => {
 				console.log("Remita Success:", response);
 				onSuccess(response);
@@ -73,16 +94,6 @@ function Payment({
 		paymentEngine.showPaymentWidget();
 	};
 
-	const handlePaymentMethod = (e) => {
-		const selectedMethod = e.target.value;
-		setPaymentMethod(selectedMethod);
-		setFileError("");
-
-		if (selectedMethod === "online") {
-			setPaymentInitiated(true);
-			handleRemitaPayment();
-		}
-	};
 
 	const handleFileChange = ({ fileList }) => {
 		const newFileList = fileList.slice(-1);
@@ -130,6 +141,95 @@ function Payment({
 		handleSubmit(e);
 	};
 
+
+	const generateRRR = async () => {
+		setGeneratingRRR(true);
+		try {
+
+			const paymentData = {
+				amount,
+				orderId: Date.now().toString(),
+				payerName: `${inputValue.surname} ${inputValue.otherNames}`,
+				payerEmail: inputValue.email,
+				payerPhone: inputValue.phone,
+				description: "ICAN Conference Registration"
+			}
+			const res = await ican.post("/api/payments/initialize", paymentData,);
+
+			console.log(res);
+
+			const data = await res.data.data;
+			if (!data.rrr) {
+				alert("Failed to generate RRR");
+				return;
+			}
+
+			if (data.rrr) {
+				const rrrInfo = {
+					rrr: data.rrr,
+					amount: amount
+				};
+				setRrrDetails(rrrInfo);
+				setRrrGenerated(true);
+				onRrrGenerated({ rrr: data.rrr });
+			}
+		} catch (error) {
+			console.error("Error generating RRR:", error);
+			alert("Failed to generate RRR. Please try again.");
+		} finally {
+			setGeneratingRRR(false);
+		}
+	};
+
+
+	const handlePaymentMethodSelect = async (method) => {
+		setPaymentMethod(method);
+
+		if (method === "online" && !rrrGenerated) {
+			await generateRRR();
+		}
+	};
+
+	const copyRRRToClipboard = () => {
+		navigator.clipboard.writeText(rrrDetails.rrr);
+		setCopiedRRR(true);
+		setTimeout(() => setCopiedRRR(false), 2000);
+	};
+
+	const handleBankBranchPaymentComplete = async () => {
+		setVerifyingPayment(true);
+		try {
+			// Call backend to verify payment
+			const response = await fetch("/api/payment/verify-rrr", {
+				method: "POST",
+				headers: { "Content-Type": "application/json" },
+				body: JSON.stringify({
+					rrr: rrrDetails.rrr,
+					email: inputValue.email,
+				}),
+			});
+
+			const data = await response.json();
+
+			if (data.success && data.paymentStatus === "paid") {
+				// Payment verified successfully
+				onSuccess({
+					paymentReference: rrrDetails.rrr,
+					amount: rrrDetails.amount,
+				});
+				handleSubmit();
+			} else {
+				alert("Payment not yet confirmed. Please ensure payment has been made at the bank.");
+			}
+		} catch (error) {
+			console.error("Error verifying payment:", error);
+			alert("Failed to verify payment. Please try again.");
+		} finally {
+			setVerifyingPayment(false);
+		}
+	};
+
+
 	return (
 		<Form onSubmit={onSubmit}>
 			{/* Back Button */}
@@ -143,6 +243,145 @@ function Payment({
 					Back to Personal Info
 				</Button>
 			</div>
+
+
+
+
+			{/* RRR Generated Display */}
+			{rrrGenerated && rrrDetails && (
+				<div className="mb-4">
+					<Card className="border-success shadow-sm">
+						<Card.Body className="p-4">
+							<div className="text-center mb-4">
+								<CheckCircle size={48} className="text-success mb-3" />
+								<h5 className="fw-bold text-success mb-2">
+									RRR Generated Successfully!
+								</h5>
+								<p className="text-muted mb-0">
+									Your Remita Retrieval Reference has been created
+								</p>
+							</div>
+
+							<Alert variant="light" className="border mb-4">
+								<div className="d-flex justify-content-between align-items-center mb-2">
+									<span className="text-muted small">RRR Number:</span>
+									<Badge bg="primary" className="fs-6 py-2 px-3">
+										{rrrDetails.rrr}
+									</Badge>
+								</div>
+								<div className="d-flex justify-content-between align-items-center">
+									<span className="text-muted small">Amount:</span>
+									<span className="fw-bold">₦{rrrDetails.amount.toLocaleString()}</span>
+								</div>
+							</Alert>
+
+							<Button
+								variant="outline-primary"
+								size="sm"
+								className="w-100 mb-4"
+								onClick={copyRRRToClipboard}
+							>
+								<Copy size={16} className="me-2" />
+								{copiedRRR ? "Copied!" : "Copy RRR"}
+							</Button>
+
+							<h6 className="fw-semibold mb-3">Choose how to pay:</h6>
+
+							<Row className="g-3">
+								<Col md={6}>
+									<Button
+										variant="primary"
+										size="lg"
+										className="w-100"
+										onClick={proceedWithInlinePayment}
+									>
+										<CreditCard size={20} className="me-2" />
+										Pay Online Now
+									</Button>
+									<small className="text-muted d-block text-center mt-2">
+										Instant payment with card
+									</small>
+								</Col>
+
+								<Col md={6}>
+									<Button
+										variant="outline-primary"
+										size="lg"
+										className="w-100"
+										onClick={() => setPaymentMethod("bank-confirm")}
+									>
+										<Building2 size={20} className="me-2" />
+										Pay at Bank Branch
+									</Button>
+									<small className="text-muted d-block text-center mt-2">
+										Use this RRR at any bank
+									</small>
+								</Col>
+							</Row>
+
+							<Alert variant="warning" className="mt-4 mb-0">
+								<AlertCircle size={18} className="me-2" />
+								<small>
+									<strong>Bank Branch Payment:</strong> Take this RRR to any bank branch in Nigeria.
+									After payment, return here and click "I Have Made Payment" to verify and complete registration.
+								</small>
+							</Alert>
+						</Card.Body>
+					</Card>
+				</div>
+			)}
+
+			{/* Bank Branch Payment Confirmation */}
+			{paymentMethod === "bank-confirm" && rrrGenerated && (
+				<div className="mb-4">
+					<Card className="border-info">
+						<Card.Body className="p-4">
+							<h6 className="fw-semibold mb-3">
+								<Building2 size={20} className="me-2" />
+								Complete Bank Branch Payment
+							</h6>
+
+							<Alert variant="info" className="mb-4">
+								<h6 className="fw-semibold mb-2">Payment Instructions:</h6>
+								<ol className="mb-0 ps-3">
+									<li>Visit any bank branch in Nigeria</li>
+									<li>Provide your RRR: <strong>{rrrDetails.rrr}</strong></li>
+									<li>Pay ₦{rrrDetails.amount.toLocaleString()}</li>
+									<li>Return here and click "I Have Made Payment"</li>
+								</ol>
+							</Alert>
+
+							<div className="d-grid gap-3">
+								<Button
+									variant="success"
+									size="lg"
+									onClick={handleBankBranchPaymentComplete}
+									disabled={verifyingPayment}
+								>
+									{verifyingPayment ? (
+										<>
+											<Spinner animation="border" size="sm" className="me-2" />
+											Verifying Payment...
+										</>
+									) : (
+										<>
+											<CheckCircle size={20} className="me-2" />
+											I Have Made Payment
+										</>
+									)}
+								</Button>
+
+								<Button
+									variant="outline-secondary"
+									onClick={() => setPaymentMethod("online")}
+								>
+									Changed Mind? Pay Online Instead
+								</Button>
+							</div>
+						</Card.Body>
+					</Card>
+				</div>
+			)}
 
 			{/* Payment Summary Card */}
 			<Card className="border-primary mb-4 shadow-sm">
@@ -172,51 +411,57 @@ function Payment({
 			</Card>
 
 			{/* Payment Method Selection */}
-			<div className="mb-4">
-				<h5 className="fw-semibold mb-3 text-dark">
-					<i className="bi bi-credit-card me-2 text-primary"></i>
-					Select Payment Method
-				</h5>
+			{!rrrGenerated && (
+				<div className="mb-4">
+					<h5 className="fw-semibold mb-3 text-dark">
+						<i className="bi bi-credit-card me-2 text-primary"></i>
+						Choose Payment Method
+					</h5>
 
-				<Form.Group>
 					<Row className="g-3">
 						<Col md={6}>
 							<Card
-								className={`h-100 cursor-pointer border-2 ${paymentMethod === 'online' ? 'border-primary' : ''}`}
-								onClick={() => !inputValue?.paymentSuccess && handlePaymentMethod({ target: { value: 'online' } })}
-								style={{ cursor: inputValue?.paymentSuccess ? 'not-allowed' : 'pointer' }}
+								className={`h-100 cursor-pointer ${paymentMethod === "online" ? "border-primary shadow" : "border"
+									}`}
+								style={{ cursor: "pointer" }}
+								onClick={() => handlePaymentMethodSelect("online")}
 							>
 								<Card.Body className="text-center p-4">
 									<div className="mb-3">
 										<i className="bi bi-credit-card-2-front text-primary" style={{ fontSize: '2.5rem' }}></i>
 									</div>
 									<h6 className="fw-semibold mb-2">Online Payment</h6>
-									<p className="text-muted small mb-0">Pay securely with Remita</p>
+									<p className="text-muted small mb-0">Pay instantly with card or bank transfer</p>
+									{generatingRRR && (
+										<div className="mt-3">
+											<Spinner animation="border" size="sm" className="me-2" />
+											<span className="small">Generating RRR...</span>
+										</div>
+									)}
 								</Card.Body>
 							</Card>
 						</Col>
+
 						<Col md={6}>
 							<Card
-								className="h-100 border-2 opacity-50"
+								className={`h-100 cursor-pointer opacity-50 ${paymentMethod === "bank" ? "border-primary shadow" : "border"
+									}`}
 								style={{ cursor: 'not-allowed' }}
 							>
-								<Card.Body className="text-center p-4 position-relative">
-									<div className="position-absolute top-0 end-0 m-2">
-										<Badge bg="secondary" className="px-2 py-1">
-											<small>Disabled</small>
-										</Badge>
-									</div>
+								<Card.Body className="text-center p-4">
 									<div className="mb-3">
 										<i className="bi bi-bank text-muted" style={{ fontSize: '2.5rem' }}></i>
 									</div>
-									<h6 className="fw-semibold mb-2 text-muted">Bank Transfer</h6>
-									<p className="text-muted small mb-0">Direct lodgement/transfer</p>
+									<h6 className="fw-semibold mb-2 text-muted">Direct lodgement/transfer</h6>
+									<p className="text-muted small mb-0">
+										Pay at any bank branch
+									</p>
 								</Card.Body>
 							</Card>
 						</Col>
 					</Row>
-				</Form.Group>
-			</div>
+				</div>
+			)}
 
 			{/* Bank Transfer Details */}
 			{(paymentMethod === "direct" || inputValue?.paymentSuccess) && (
@@ -243,7 +488,7 @@ function Payment({
 								type="button"
 								onClick={() => {
 									setPaymentMethod("online");
-									handlePaymentMethod({ target: { value: "online" } });
+									handlePaymentMethodSelect('online');
 								}}
 								className="d-inline-flex align-items-center gap-2"
 							>
