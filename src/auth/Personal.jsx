@@ -1,10 +1,18 @@
+
 import { Eye, EyeOff } from "lucide-react";
 import React, { useState } from "react";
 import { Button, Form, InputGroup, Row, Col } from "react-bootstrap";
+import Select from "react-select";
 
-function Personal({ handleChange, handleSubmit, inputValue, districtSocieties }) {
+function Personal({ handleChange, handleSubmit, inputValue, districtSocieties, handleSocietyChange }) {
 	const [showPassword, setShowPassword] = useState(false);
 	const [showConfirm, setShowConfirm] = useState(false);
+
+	const districtSocietyOptions = districtSocieties.map(ds => ({
+		value: ds,
+		label: ds,
+	}));
+
 
 	return (
 		<Form>
@@ -96,22 +104,25 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties })
 							</Form.Group>
 						</Col>
 						<Col md={6}>
-							<Form.Group className='mb-3'>
+							<Form.Group className="mb-3">
 								<Form.Label className="fw-medium">
 									District Society <span className="text-danger">*</span>
 								</Form.Label>
-								<Form.Select
-									onChange={handleChange}
-									value={inputValue.nameOfSociety}
-									name='nameOfSociety'
-									required
-								>
-									{districtSocieties.map((districtSociety, index) => (
-										<option key={index} value={districtSociety}>
-											{districtSociety}
-										</option>
-									))}
-								</Form.Select>
+
+								<Select
+									name="nameOfSociety"
+									options={districtSocietyOptions}
+									placeholder="Start typing your district or chapter..."
+									isSearchable
+									isClearable
+									value={
+										districtSocietyOptions.find(
+											opt => opt.value === inputValue.nameOfSociety
+										) || null
+									}
+									onChange={handleSocietyChange
+									}
+								/>
 							</Form.Group>
 						</Col>
 					</Row>

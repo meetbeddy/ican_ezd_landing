@@ -57,6 +57,14 @@ function Register() {
 		setInputValue((values) => ({ ...values, [name]: value }));
 	};
 
+	const handleSocietyChange = (selectedOption) => {
+		setInputValue(values => ({
+			...values,
+			nameOfSociety: selectedOption?.value || "",
+		}));
+
+	}
+
 	const onDateChange = (date, dateString) => {
 		setInputValue({ ...inputValue, tellerDate: dateString, date });
 	};
@@ -250,6 +258,9 @@ function Register() {
 											handleChange={handleChange}
 											handleSubmit={handleNext}
 											districtSocieties={data.districtSocieties}
+											handleSocietyChange={
+												handleSocietyChange
+											}
 										/>
 									)}
 									{step === 2 && (
