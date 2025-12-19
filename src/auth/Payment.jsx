@@ -4,7 +4,8 @@ import { DatePicker, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import Swal from "sweetalert2";
 import { ican } from "../api/axios";
-import { AlertCircle, Building2, CheckCircle, Copy, CreditCard, ArrowDown } from "lucide-react";
+import { AlertCircle, Building2, CheckCircle, Copy, CreditCard, ArrowDown, Tag } from "lucide-react";
+import dayjs from "dayjs";
 
 function Payment({
 	handleSubmit,
@@ -17,7 +18,6 @@ function Payment({
 	handleFileUpload,
 	onRrrGenerated
 }) {
-
 
 	// STATE
 	const [paymentMethod, setPaymentMethod] = useState("");
@@ -49,8 +49,14 @@ function Payment({
 		}
 	}, [paymentMethod]);
 
-	// UTILITY FUNCTIONS
-	const calculateAmount = () => {
+	// DISCOUNT LOGIC
+	const isEarlyBird = () => {
+		const deadline = dayjs("2025-12-31").endOf("day");
+		const now = dayjs();
+		return now.isBefore(deadline) || now.isSame(deadline, "day");
+	};
+
+	const calculateBaseAmount = () => {
 		if (!inputValue) return 0;
 
 		if (inputValue.venue === "virtual") return 25000;
@@ -66,8 +72,12 @@ function Payment({
 		return memberAmounts[inputValue.memberCategory] || 0;
 	};
 
-	const amount = calculateAmount();
+	const baseAmount = calculateBaseAmount();
+	const hasDiscount = isEarlyBird();
+	const discountAmount = hasDiscount ? Math.round(baseAmount * 0.05) : 0;
+	const amount = baseAmount - discountAmount;
 
+	// UTILITY FUNCTIONS
 	const swalError = (msg) => Swal.fire({ icon: "error", title: "Error", text: msg });
 	const swalSuccess = (msg) => Swal.fire({ icon: "success", title: "Success", text: msg });
 
@@ -226,6 +236,25 @@ function Payment({
 				</Button>
 			</div>
 
+			{/* Early Bird Discount Banner */}
+			{hasDiscount && (
+				<Alert variant="success" className="border-0 shadow-sm mb-4">
+					<div className="d-flex align-items-center">
+						<Tag size={24} className="me-3 text-success" />
+						<div className="flex-grow-1">
+							<h6 className="fw-bold mb-1">
+								<i className="bi bi-gift-fill me-2"></i>
+								Early Bird Discount Active!
+							</h6>
+							<p className="mb-0 small">
+								Register before December 31st and save 5% on your registration fee.
+								<strong className="ms-1">You save ₦{discountAmount.toLocaleString()}!</strong>
+							</p>
+						</div>
+					</div>
+				</Alert>
+			)}
+
 			{/* RRR DISPLAY UI */}
 			{!!rrrGenerated && rrrDetails && (
 				<div className="mb-4">
@@ -246,6 +275,14 @@ function Payment({
 									<span className="text-muted small">Amount:</span>
 									<span className="fw-bold">₦{amount.toLocaleString()}</span>
 								</div>
+								{hasDiscount && (
+									<div className="mt-2 pt-2 border-top">
+										<small className="text-success">
+											<i className="bi bi-gift-fill me-1"></i>
+											Early bird discount applied (5% off)
+										</small>
+									</div>
+								)}
 							</Alert>
 
 							<Button variant="outline-primary" size="sm" className="w-100 mb-4" onClick={copyRRRToClipboard}>
@@ -369,6 +406,9 @@ function Payment({
 									<Col xs={4} className="text-muted small">Amount:</Col>
 									<Col xs={8}>
 										<span className="fw-bold fs-5">₦{amount.toLocaleString()}</span>
+										{hasDiscount && (
+											<Badge bg="success" className="ms-2">5% discount applied</Badge>
+										)}
 									</Col>
 								</Row>
 							</div>
@@ -416,9 +456,6 @@ function Payment({
 				</div>
 			)}
 
-
-
-
 			{!rrrGenerated && (
 				<>
 					{/* PAYMENT SUMMARY */}
@@ -434,9 +471,33 @@ function Payment({
 								</Badge>
 							</div>
 
-							<div className="d-flex justify-content-between align-items-center py-3 border-top">
-								<span className="text-muted">Registration Fee</span>
-								<h3 className="fw-bold text-primary">₦{amount.toLocaleString()}</h3>
+							<div className="py-3 border-top">
+								{hasDiscount && (
+									<>
+										<div className="d-flex justify-content-between align-items-center mb-2">
+											<span className="text-muted">Original Price</span>
+											<span className="text-muted text-decoration-line-through">
+												₦{baseAmount.toLocaleString()}
+											</span>
+										</div>
+										<div className="d-flex justify-content-between align-items-center mb-2">
+											<span className="text-success fw-semibold">
+												<i className="bi bi-gift-fill me-1"></i>
+												Early Bird Discount (5%)
+											</span>
+											<span className="text-success fw-semibold">
+												-₦{discountAmount.toLocaleString()}
+											</span>
+										</div>
+										<hr className="my-2" />
+									</>
+								)}
+								<div className="d-flex justify-content-between align-items-center">
+									<span className={hasDiscount ? "fw-semibold" : "text-muted"}>
+										{hasDiscount ? "Total to Pay" : "Registration Fee"}
+									</span>
+									<h3 className="fw-bold text-primary mb-0">₦{amount.toLocaleString()}</h3>
+								</div>
 							</div>
 
 							{inputValue.memberStatus === "member" && (
@@ -447,6 +508,7 @@ function Payment({
 							)}
 						</Card.Body>
 					</Card>
+
 					{/* PAYMENT METHOD SELECTION */}
 					<div className="mb-4">
 						<h5 className="fw-semibold mb-3 text-dark">
@@ -488,7 +550,6 @@ function Payment({
 						</Row>
 					</div>
 				</>
-
 			)}
 
 			{/* BANK TRANSFER FORM */}

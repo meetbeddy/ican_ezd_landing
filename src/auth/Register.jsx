@@ -62,7 +62,6 @@ function Register() {
 			...values,
 			nameOfSociety: selectedOption?.value || "",
 		}));
-
 	}
 
 	const onDateChange = (date, dateString) => {
@@ -86,7 +85,6 @@ function Register() {
 			tellerNumber: data.rrr,
 			rrrGenerated: true,
 		});
-
 	}
 
 	const handleFileUpload = (file) => {
@@ -258,9 +256,7 @@ function Register() {
 											handleChange={handleChange}
 											handleSubmit={handleNext}
 											districtSocieties={data.districtSocieties}
-											handleSocietyChange={
-												handleSocietyChange
-											}
+											handleSocietyChange={handleSocietyChange}
 										/>
 									)}
 									{step === 2 && (

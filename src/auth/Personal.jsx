@@ -115,6 +115,9 @@ function Personal({ handleChange, handleSubmit, inputValue, districtSocieties, h
 									placeholder="Start typing your district or chapter..."
 									isSearchable
 									isClearable
+									menuPlacement="auto"
+									menuPortalTarget={document.body}
+									styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
 									value={
 										districtSocietyOptions.find(
 											opt => opt.value === inputValue.nameOfSociety
