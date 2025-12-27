@@ -60,33 +60,27 @@ export default {
         "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
       details: [
         {
-          detail:
-            "It is our pleasure to welcome you to the 19th Eastern Zonal Districts Conference of the Institute of Chartered Accountants of Nigeria (ICAN), holding virtually and physically from Tuesday 1st - Friday 4th April, 2025. "
+          detail: "It is our pleasure to welcome you to the 20th Eastern Zonal Districts Conference of the Institute of Chartered Accountants of Nigeria (ICAN), holding virtually and physically from Wednesday 22nd - Saturday 25th April, 2026."
         },
         {
-          detail:
-            "The Institute of Chartered Accountants of Nigeria (ICAN) is Nigeria’s foremost professional Accountancy body established by Act of Parliament No. 15 of 1965. The Eastern Zonal District of the Institute of Chartered Accountants of Nigeria (ICAN) is made up of District Societies in the 5 states of the South East geopolitical zone of Nigeria. The Zonal District holds her Zonal Conference every year, where national topical and economic issues are discussed. The Annual Eastern Zonal Conference have been successfully held in the following states within the zone; Owerri (2007), Enugu (2010 and 2018), Umuahia (2011), Awka (2014), Abakaliki (2016), Onitsha (2019), Aba (2021), Owerri (2022), Awka (2023) and Abakaliki (2024).",
+          detail: "The Institute of Chartered Accountants of Nigeria (ICAN) is Nigeria's foremost professional Accountancy body established by Act of Parliament No. 15 of 1965. The Eastern Zonal District of the Institute of Chartered Accountants of Nigeria (ICAN) is made up of District Societies in the 5 states of the South East geopolitical zone of Nigeria. The Zonal District holds her Zonal Conference every year, where national topical and economic issues are discussed. The Annual Eastern Zonal Conference have been successfully held in the following states within the zone; Owerri (2007), Enugu (2010 and 2018), Umuahia (2011), Awka (2014), Abakaliki (2016), Onitsha (2019), Aba (2021), Owerri (2022), Awka (2023) and Abakaliki (2024) Umuahia (2025)."
         },
         {
-          detail:
-            "The 2025 (19th) edition of Eastern Zonal Accountants’ Conference is scheduled to hold at the Ochendo International Conference Centre (ICC), Umuahia, Abia State from April 1st to 4th, 2025 with the Theme: Beyond Nigeria’s Economic Crisis: Unlocking Opportunities For Growth. The sub-themes and papers would be presented by eminent and subject matter experts, with practicable solutions crafted within.",
+          detail: "The 2026 (20th) edition of Eastern Zonal Accountants' Conference is scheduled to hold at the Princess Alexandria Auditorium, University of Nigeria, Nsukka Campus, Nsukka, Enugu State from 22nd to 25th April, 2026 with the Theme: Strategic Value Creation in a Disruptive Economy: Nigeria in Perspective. The sub-themes and papers would be presented by eminent and subject matter experts, with practicable solutions crafted within."
         },
         {
-          detail: "The Conference will be attended by Managing Directors/ CEOs, Executive Directors, Finance Managers/ Officers, Captains of Industries, top Government functionaries etc. "
+          detail: "The Conference will be attended by Managing Directors/ CEOs, Executive Directors, Finance Managers/ Officers, Captains of Industries, top Government functionaries etc."
         },
         {
-          detail:
-            "This year’s conference will be held both virtually and physically. Virtual participants are expected to pay ₦30,000 which covers their certificate of attendance, softcopy of papers presented at the conference and they will also be entitled to 16 MCPE hours (for members of the Institute of Chartered Accountants of Nigeria), Young Accountants (>MB052000, & <30yrs) are to pay ₦35,000   while other members of the Institute attending the conference physically will pay ₦50,000 and non-members of the Institute attending physically will pay a flat rate of ₦60,000 which entitles them to certificate of attendance and softcopy of papers presented at the conference and other materials.",
+          detail: "This year's conference will be held both virtually and physically. Virtual participants are expected to pay ₦25,000 which covers their certificate of attendance, softcopy of papers presented at the conference and they will also be entitled to 16 MCPE hours (for members of the Institute of Chartered Accountants of Nigeria), Young Accountants (>MB058194, & <35yrs as at Dec 31st 2025) are to pay ₦40,000 while other members of the Institute attending the conference physically will pay ₦60,000 and non-members of the Institute attending physically will pay a flat rate of ₦70,000 which entitles them to certificate of attendance and softcopy of papers presented at the conference and other materials. However those that register before 31st December 2025 will enjoy 5% Discount."
         },
         {
-          detail:
-            "We therefore respectfully request you to register and participate fully in the forthcoming Eastern Zonal Districts Conference that will enable you obtain the following benefits; E-conference certificate, E-conference brochure/programme proceedings, softcopy of conference papers, softcopy of payment receipt, constant SMS and email updates on issues relating to the conference and many more.",
+          detail: "We therefore respectfully request you to register and participate fully in the forthcoming Eastern Zonal Districts Conference that will enable you obtain the following benefits; E-conference certificate, E-conference brochure/programme proceedings, softcopy of conference papers, softcopy of payment receipt, constant SMS and email updates on issues relating to the conference and many more."
         },
         {
-          detail:
-            "Consequently, we wish to also encourage you to sponsor and brand choice conference items/materials with your logo/ emblem, and/ or place adverts or goodwill messages in our colourful Conference brochure (about 500 copies to be produced) and website (www.ican.ezdconference.org.ng), to showcase and deepen the market share for your products and services.  This will enable you directly reach over Thirty Thousand (30000) Chartered Accountants and other participants that are anticipated to view the zone’s conference website or download the conference Application.",
-        },
-      ],
+          detail: "Consequently, we wish to also encourage you to sponsor and brand choice conference items/materials with your logo/ emblem, and/ or place adverts or goodwill messages in our colourful Conference brochure (about 500 copies to be produced) and website (www.ican.ezdconference.org.ng), to showcase and deepen the market share for your products and services. This will enable you directly reach over Thirty Thousand (30000) Chartered Accountants and other participants that are anticipated to view the zone's conference website or download the conference Application."
+        }
+      ]
     },
 
     plenary: [
