@@ -81,8 +81,8 @@ function ContactSection() {
                     <h4 className="fs-5 fw-bold mb-0">Technical Issues</h4>
                   </div>
                   <div className="ps-5">
-                    <p className="mb-1"><strong>Phone:</strong> 08137073232, 08027947114, 08051664075, 08034077466</p>
-                    <p className="mb-0"><strong>Email:</strong> icanezdconference@outlook.com</p>
+                    <p className="mb-1"><strong>Phone:</strong> 08137073232, 08037928869, 08034077466, 08027947114</p>
+                    <p className="mb-0"><strong>Email:</strong> admin@icanezdconference.org, info@icanezdconference.org.ng, icanezdc@gmail.com, icanezdconference@outlook.com</p>
                   </div>
                 </div>
 
@@ -94,11 +94,11 @@ function ContactSection() {
                     <h4 className="fs-5 fw-bold mb-0">Advert and Sponsorship</h4>
                   </div>
                   <div className="ps-5">
-                    <p className="mb-1"><strong>Phone:</strong> 08063568402, 08065750091, 08033419008 <Button variant="link" className="p-0 align-baseline" data-bs-toggle="collapse" data-bs-target="#moreAdNumbers">more...</Button></p>
+                    <p className="mb-1"><strong>Phone:</strong> 08054219305, 08038353990, 08027947114, 08068058068, 08033391878, 08039613226 <Button variant="link" className="p-0 align-baseline" data-bs-toggle="collapse" data-bs-target="#moreAdNumbers">more...</Button></p>
                     <div id="moreAdNumbers" className="collapse">
-                      <p className="mb-1">08038813428, 08035734227, 08051664075, 08033016199, 08035749607, 08088610350, 08037062504, 07042984055, 07033169451</p>
+                      <p className="mb-1">08037094950, 08037401786, 08038426076, 08036769045, 08034513615, 08037928869, 08035660502, 08064034543</p>
                     </div>
-                    <p className="mb-0"><strong>Email:</strong> icanezdconference@outlook.com, larryucy@gmail.com kingsleyoyekezie@yahoo.com, modozieemmanuel71@gmail.com</p>
+                    <p className="mb-0"><strong>Email:</strong> icanezdc@gmail.com, icanezdconference@outlook.com, chezeg@yahoo.co.uk, anyadufuanthony@gmail.com</p>
                   </div>
                 </div>
 
@@ -110,8 +110,8 @@ function ContactSection() {
                     <h4 className="fs-5 fw-bold mb-0">Finance & Registration</h4>
                   </div>
                   <div className="ps-5">
-                    <p className="mb-1"><strong>Phone:</strong> 08088610350, 08137073232, 08027947114, 08066575009, 08033419008</p>
-                    <p className="mb-0"><strong>Email:</strong> icanezdconference@outlook.com</p>
+                    <p className="mb-1"><strong>Phone:</strong> 08027947114, 08037401786, 08033978037, 08137073232, 08039613226</p>
+                    <p className="mb-0"><strong>Email:</strong> info@icanezdconference.org.ng, icanezdc@gmail.com</p>
                   </div>
                 </div>
               </Card.Body>
