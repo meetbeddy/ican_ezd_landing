@@ -4,7 +4,7 @@ import { DatePicker, Upload } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import Swal from "sweetalert2";
 import { ican } from "../api/axios";
-import { AlertCircle, Building2, CheckCircle, Copy, CreditCard, ArrowDown, Tag } from "lucide-react";
+import { AlertCircle, Building2, CheckCircle, Copy, CreditCard, ArrowDown, Tag, RefreshCw } from "lucide-react";
 import dayjs from "dayjs";
 
 function Payment({
@@ -16,7 +16,8 @@ function Payment({
 	setStep,
 	loading,
 	handleFileUpload,
-	onRrrGenerated
+	onRrrGenerated,
+	clearRRR // Add this prop
 }) {
 
 	// STATE
@@ -176,6 +177,34 @@ function Payment({
 		}
 	};
 
+	// REGENERATE RRR - NEW FUNCTION
+	const handleRegenerateRRR = () => {
+		Swal.fire({
+			title: 'Regenerate RRR?',
+			text: 'This will create a new payment reference. Your previous RRR will no longer be valid.',
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, generate new RRR',
+			cancelButtonText: 'Cancel'
+		}).then(async (result) => {
+			if (result.isConfirmed) {
+				// Clear existing RRR state
+				setRrrGenerated(false);
+				setRrrDetails(null);
+				setPaymentMethod("");
+				setShowBankInstructions(false);
+
+				// Clear from parent component
+				clearRRR();
+
+				// Generate new RRR
+				await generateRRR();
+			}
+		});
+	};
+
 	// PAYMENT METHOD SELECTION
 	const handlePaymentMethodSelect = async (method) => {
 		setPaymentMethod(method);
@@ -260,10 +289,24 @@ function Payment({
 				<div className="mb-4">
 					<Card className="border-success shadow-sm">
 						<Card.Body className="p-4">
-							<div className="text-center mb-4">
-								<CheckCircle size={48} className="text-success mb-3" />
-								<h5 className="fw-bold text-success">RRR Generated Successfully!</h5>
-								<p className="text-muted">Your Remita Retrieval Reference is ready</p>
+							<div className="d-flex justify-content-between align-items-start mb-4">
+								<div className="text-center flex-grow-1">
+									<CheckCircle size={48} className="text-success mb-3" />
+									<h5 className="fw-bold text-success">RRR Generated Successfully!</h5>
+									<p className="text-muted">Your Remita Retrieval Reference is ready</p>
+								</div>
+
+								{/* Regenerate Button - NEW */}
+								<Button
+									variant="outline-secondary"
+									size="sm"
+									onClick={handleRegenerateRRR}
+									className="d-flex align-items-center gap-2"
+									title="Generate a new RRR"
+								>
+									<RefreshCw size={16} />
+									<span className="d-none d-md-inline">New RRR</span>
+								</Button>
 							</div>
 
 							<Alert variant="light" className="border mb-4">

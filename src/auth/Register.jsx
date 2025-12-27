@@ -87,6 +87,18 @@ function Register() {
 		});
 	}
 
+	// NEW: Function to clear RRR data
+	const clearRRR = () => {
+		setInputValue(prev => ({
+			...prev,
+			tellerNumber: "",
+			rrrGenerated: false,
+			amountPaid: 0,
+			paymentSuccess: false,
+			bankName: prev.bankName === "remita transaction" ? "" : prev.bankName,
+		}));
+	};
+
 	const handleFileUpload = (file) => {
 		setPaymentProofFile(file);
 	};
@@ -270,6 +282,7 @@ function Register() {
 											loading={loading}
 											handleFileUpload={handleFileUpload}
 											onRrrGenerated={rrrGenerated}
+											clearRRR={clearRRR}
 										/>
 									)}
 								</div>
