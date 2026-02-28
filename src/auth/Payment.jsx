@@ -17,7 +17,8 @@ function Payment({
 	loading,
 	handleFileUpload,
 	onRrrGenerated,
-	clearRRR // Add this prop
+	clearRRR,
+	isPaymentPage = false
 }) {
 
 	// STATE
@@ -120,7 +121,7 @@ function Payment({
 	};
 
 	// INLINE PAYMENT (Remita)
-	const proceedWithInlinePayment = () => {
+	const proceedWithInlinePayment = async () => {
 		if (!window.RmPaymentEngine) {
 			return swalError("Payment service unavailable. Please refresh and try again.");
 		}
@@ -128,6 +129,19 @@ function Payment({
 		const rrr = rrrGenerated ? inputValue.tellerNumber : rrrDetails?.rrr;
 
 		if (!rrr) return swalError("RRR not found. Please generate RRR first.");
+
+		// Auto-save registration as pending before showing the widget
+		setGeneratingRRR(true);
+		try {
+			// Ensure required fields are set for backend validation during silent signup
+			const overrides = { bankName: "remita transaction", tellerNumber: rrr, tellerDate: new Date().toISOString() }
+			await handleSubmit(null, { silent: true, overrides });
+		} catch (error) {
+			console.error("Silent signup failed:", error);
+			// We continue anyway, as the user might still complete the flow manually
+		} finally {
+			setGeneratingRRR(false);
+		}
 
 		const paymentEngine = window.RmPaymentEngine.init({
 			key: process.env.REACT_APP_REMITA_KEY,
@@ -249,7 +263,13 @@ function Payment({
 		}
 	};
 
-	// FORM SUBMIT
+	// FORM SUBMITS
+	const handlePayLater = (e) => {
+		if (e && e.preventDefault) e.preventDefault();
+		const overrides = { bankName: "remita transaction", tellerNumber: rrrDetails.rrr, tellerDate: new Date().toISOString() }
+		handleSubmit(e, { overrides });
+	};
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 		if (!validateForm()) return;
@@ -259,11 +279,13 @@ function Payment({
 	return (
 		<Form onSubmit={onSubmit}>
 
-			<div className="mb-4">
-				<Button variant="outline-primary" onClick={() => setStep(1)} className="d-flex align-items-center gap-2">
-					<i className="bi bi-arrow-left"></i> Back to Personal Info
-				</Button>
-			</div>
+			{!isPaymentPage && (
+				<div className="mb-4">
+					<Button variant="outline-primary" onClick={() => setStep(1)} className="d-flex align-items-center gap-2">
+						<i className="bi bi-arrow-left"></i> Back to Personal Info
+					</Button>
+				</div>
+			)}
 
 			{/* Early Bird Discount Banner */}
 			{hasDiscount && (
@@ -333,14 +355,52 @@ function Payment({
 								{copiedRRR ? "Copied!" : "Copy RRR"}
 							</Button>
 
+							{!isPaymentPage && (
+								<div className="mb-4">
+									<Button
+										variant="outline-success"
+										className="w-100 py-2 d-flex align-items-center justify-content-center gap-2"
+										onClick={handlePayLater}
+										disabled={loading}
+									>
+										{loading ? (
+											<>
+												<Spinner animation="border" size="sm" />
+												Processing...
+											</>
+										) : (
+											<>
+												<i className="bi bi-clock-history"></i>
+												Complete Registration & Pay Later
+											</>
+										)}
+									</Button>
+									<div className="text-center mt-2">
+										<small className="text-muted">
+											Save your details now and pay at your convenience.
+										</small>
+									</div>
+								</div>
+							)}
+
 							{/* Payment Method Selection  */}
 							{paymentMethod !== "bank-confirm" && (
 								<>
 									<h6 className="text-center mb-3 text-muted">Choose how to pay</h6>
 									<Row className="g-3">
 										<Col md={6}>
-											<Button variant="primary" size="lg" className="w-100 py-3" onClick={proceedWithInlinePayment}>
-												<CreditCard size={24} className="mb-2 d-block mx-auto" />
+											<Button
+												variant="primary"
+												size="lg"
+												className="w-100 py-3 d-flex flex-column align-items-center justify-content-center"
+												onClick={proceedWithInlinePayment}
+												disabled={generatingRRR}
+											>
+												{generatingRRR ? (
+													<Spinner animation="border" size="sm" className="mb-2" />
+												) : (
+													<CreditCard size={24} className="mb-2" />
+												)}
 												<div className="fw-semibold">Pay Online Now</div>
 												<small className="d-block opacity-75">Card, Bank Transfer, USSD</small>
 											</Button>
@@ -471,7 +531,7 @@ function Payment({
 										</>
 									) : (
 										<>
-											<CheckCircle size={20} className="me-2" />
+											<i className="bi bi-check-circle me-2"></i>
 											I Have Made Payment - Verify Now
 										</>
 									)}

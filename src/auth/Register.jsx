@@ -125,6 +125,27 @@ function Register() {
 			return false;
 		}
 
+		// Email validation
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		if (!emailRegex.test(email)) {
+			Swal.fire({
+				icon: "error",
+				title: "Invalid Email",
+				text: "Please enter a valid email address.",
+			});
+			return false;
+		}
+
+		// Password length validation
+		if (password.length < 6) {
+			Swal.fire({
+				icon: "error",
+				title: "Password Too Short",
+				text: "Password must be at least 6 characters.",
+			});
+			return false;
+		}
+
 		if (password !== confirm_password) {
 			Swal.fire({
 				icon: "error",
@@ -154,9 +175,11 @@ function Register() {
 		setStep(2);
 	};
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setLoading(true);
+	const handleSubmit = async (e, options = {}) => {
+		if (e && e.preventDefault) e.preventDefault();
+		const { silent = false, overrides = {} } = options;
+
+		if (!silent) setLoading(true);
 
 		let surname = inputValue.surname.toUpperCase();
 
@@ -174,9 +197,12 @@ function Register() {
 
 		const dataToSend = {
 			...inputValue,
+			...overrides,
 			name: `${surname} ${inputValue.otherNames}`,
 			icanCode: formattedIcanCode
 		};
+
+
 
 		Object.keys(dataToSend).forEach(key => {
 			formData.append(key, dataToSend[key]);
@@ -193,27 +219,37 @@ function Register() {
 				}
 			});
 
-			setLoading(false);
+			if (!silent) setLoading(false);
 
 			if (res.data.success) {
+				if (silent) return res.data;
+
+				const isPending = !inputValue.paymentSuccess && inputValue.rrrGenerated;
+
 				Swal.fire({
 					icon: "success",
-					title: "Registration Successful",
-					text: "You have successfully registered for the conference",
-					timer: 3000,
+					title: isPending ? "Registration Received" : "Registration Successful",
+					text: isPending
+						? "Your registration details have been saved. Your account will be fully activated once your bank payment is verified."
+						: "You have successfully registered for the conference",
+					timer: 5000,
 				}).then(() => {
 					localStorage.removeItem("ican_registration");
 					window.location.href = "https://admin.icanezdconference.org.ng/login";
 				});
 			}
+			return res.data;
 		} catch (err) {
-			setLoading(false);
-			const message = err.response?.data?.message || "Registration failed. Please try again.";
-			Swal.fire({
-				icon: "error",
-				title: "Registration failed",
-				text: message,
-			});
+			if (!silent) {
+				setLoading(false);
+				const message = err.response?.data?.message || "Registration failed. Please try again.";
+				Swal.fire({
+					icon: "error",
+					title: "Registration failed",
+					text: message,
+				});
+			}
+			throw err;
 		}
 	};
 

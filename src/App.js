@@ -2,6 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./landing/Index";
 import Register from "./auth/Register";
+import PaymentPage from "./auth/PaymentPage";
 import RegSuccess from "./auth/RegSuccess";
 import AboutPage from "./landing/pages/AboutPage";
 import PageNotFound from "./landing/pages/404Page";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/executives" element={<Executives />} />
         <Route path="/current-presidency" element={<Presidency />} />
         <Route path="/register" element={<Register />}></Route>
+        <Route path="/payment" element={<PaymentPage />}></Route>
         <Route path="/reg-success" element={<RegSuccess />}></Route>
       </Routes>
     </div>

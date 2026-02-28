@@ -9,7 +9,7 @@ function AboutSection() {
             <div className="content">
               <h3>About the Current Year ICAN EZD Conference</h3>
               <p>
-                For the year 2025, the conference theme is “Beyond Nigeria’s Economic Crisis: Unlocking Opportunities For Growth.”.
+                For the year 2026, the conference theme is “Beyond Nigeria’s Economic Crisis: Unlocking Opportunities For Growth.”.
                 There are also two captivating sub-themes slated for Day’s 1 & 2
                 of the conference. The Conference host and Chairman of Eastern
                 Zonal Districts – Dr. Sylvanus Ailegbo Izebhokhae FCA together

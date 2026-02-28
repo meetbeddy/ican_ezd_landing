@@ -12,7 +12,7 @@ export default {
         theme:
           "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
         year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
+        dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -21,7 +21,7 @@ export default {
         theme:
           "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
         year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
+        dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -30,7 +30,7 @@ export default {
         theme:
           "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
         year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
+        dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -39,7 +39,7 @@ export default {
         theme:
           "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
         year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
+        dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -48,7 +48,7 @@ export default {
         theme:
           "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
         year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
-        dateNTime: "Tuesday 1st - Friday 4th April, 2025",
+        dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
       },
@@ -72,7 +72,7 @@ export default {
           detail: "The Conference will be attended by Managing Directors/ CEOs, Executive Directors, Finance Managers/ Officers, Captains of Industries, top Government functionaries etc."
         },
         {
-          detail: "This year's conference will be held both virtually and physically. Virtual participants are expected to pay ₦25,000 which covers their certificate of attendance, softcopy of papers presented at the conference and they will also be entitled to 16 MCPE hours (for members of the Institute of Chartered Accountants of Nigeria), Young Accountants (>MB058194, & <35yrs as at Dec 31st 2025) are to pay ₦40,000 while other members of the Institute attending the conference physically will pay ₦60,000 and non-members of the Institute attending physically will pay a flat rate of ₦70,000 which entitles them to certificate of attendance and softcopy of papers presented at the conference and other materials. However those that register before 31st December 2025 will enjoy 5% Discount."
+          detail: "This year's conference will be held both virtually and physically. Virtual participants are expected to pay ₦25,000 which covers their certificate of attendance, softcopy of papers presented at the conference and they will also be entitled to 16 MCPE hours (for members of the Institute of Chartered Accountants of Nigeria), Young Accountants (>MB058194, & <35yrs as at Dec 31st 2026) are to pay ₦40,000 while other members of the Institute attending the conference physically will pay ₦60,000 and non-members of the Institute attending physically will pay a flat rate of ₦70,000 which entitles them to certificate of attendance and softcopy of papers presented at the conference and other materials. However those that register before 31st December 2026 will enjoy 5% Discount."
         },
         {
           detail: "We therefore respectfully request you to register and participate fully in the forthcoming Eastern Zonal Districts Conference that will enable you obtain the following benefits; E-conference certificate, E-conference brochure/programme proceedings, softcopy of conference papers, softcopy of payment receipt, constant SMS and email updates on issues relating to the conference and many more."
