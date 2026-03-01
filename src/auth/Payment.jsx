@@ -77,7 +77,8 @@ function Payment({
 	const baseAmount = calculateBaseAmount();
 	const hasDiscount = isEarlyBird();
 	const discountAmount = hasDiscount ? Math.round(baseAmount * 0.05) : 0;
-	const amount = baseAmount - discountAmount;
+	// Use stored amount if available (e.g. on PaymentPage), otherwise calculate
+	const amount = inputValue?.amount || (baseAmount - discountAmount);
 
 	// UTILITY FUNCTIONS
 	const swalError = (msg) => Swal.fire({ icon: "error", title: "Error", text: msg });
@@ -559,7 +560,7 @@ function Payment({
 				</div>
 			)}
 
-			{!rrrGenerated && (
+			{(!rrrGenerated && !isPaymentPage) && (
 				<>
 					{/* PAYMENT SUMMARY */}
 					<Card className="border-primary mb-4 shadow-sm">

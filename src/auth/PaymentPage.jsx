@@ -68,22 +68,34 @@ const PaymentPage = () => {
         });
     };
 
-    const handleSubmitPayment = async (e) => {
+    const handleSubmitPayment = async (e, options = {}) => {
         if (e && e.preventDefault) e.preventDefault();
-        setPaymentLoading(true);
+        const { silent = false, overrides = {} } = options;
+
+        if (!silent) setPaymentLoading(true);
 
         try {
             // Re-submit the signup as an update (idempotent)
             const formData = new FormData();
-            Object.keys(userDetails).forEach(key => {
-                formData.append(key, userDetails[key]);
+            const dataToSend = {
+                ...userDetails,
+                ...overrides
+            };
+
+            Object.keys(dataToSend).forEach(key => {
+                if (dataToSend[key] !== undefined && dataToSend[key] !== null) {
+                    formData.append(key, dataToSend[key]);
+                }
             });
 
-            const res = await ican.post("/api/user/auth/signup", formData);
+            const res = await ican.post("/api/user/auth/update-pending", formData);
 
             if (res.data.success) {
+                // Update local state if successful
+                setUserDetails(prev => ({ ...prev, ...overrides }));
+
                 // If it's a bank teller upload or something manual, show success
-                if (!userDetails.paymentSuccess) {
+                if (!silent) {
                     Swal.fire({
                         icon: "success",
                         title: "Registration Updated",
@@ -92,13 +104,15 @@ const PaymentPage = () => {
                 }
             }
         } catch (err) {
-            Swal.fire({
-                icon: "error",
-                title: "Update Failed",
-                text: err.response?.data?.message || "Failed to update registration.",
-            });
+            if (!silent) {
+                Swal.fire({
+                    icon: "error",
+                    title: "Update Failed",
+                    text: err.response?.data?.message || "Failed to update registration.",
+                });
+            }
         } finally {
-            setPaymentLoading(false);
+            if (!silent) setPaymentLoading(false);
         }
     };
 
@@ -201,8 +215,20 @@ const PaymentPage = () => {
                                     handleFileUpload={(file) => {
                                         // Handle file upload if needed, though for RRR payments it might not be
                                     }}
-                                    onRrrGenerated={() => { }} // RRR already exists
-                                    clearRRR={() => { }} // Should not clear in this mode
+                                    onRrrGenerated={(data) => {
+                                        setUserDetails(prev => ({
+                                            ...prev,
+                                            tellerNumber: data.rrr,
+                                            rrrGenerated: true
+                                        }));
+                                    }}
+                                    clearRRR={() => {
+                                        setUserDetails(prev => ({
+                                            ...prev,
+                                            tellerNumber: "",
+                                            rrrGenerated: false
+                                        }));
+                                    }}
                                     isPaymentPage={true}
                                 />
                             </div>
