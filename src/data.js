@@ -57,7 +57,7 @@ export default {
       // flier: flier,
       year: "Current Year",
       theme:
-        "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
+        "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
       details: [
         {
           detail: "It is our pleasure to welcome you to the 20th Eastern Zonal Districts Conference of the Institute of Chartered Accountants of Nigeria (ICAN), holding virtually and physically from Wednesday 22nd - Saturday 25th April, 2026."
