@@ -10,8 +10,8 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
-        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+          "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
+        year: "20TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
@@ -19,8 +19,8 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
-        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+          "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
+        year: "20TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
@@ -28,8 +28,8 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
-        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+          "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
+        year: "20TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
@@ -37,8 +37,8 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
-        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+          "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
+        year: "20TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
@@ -46,8 +46,8 @@ export default {
       {
         venue: "The Conference Will Hold Virtually and Physically",
         theme:
-          "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
-        year: "19TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
+          "Strategic Value Creation in a Disruptive Economy: Nigeria In Perpective.",
+        year: "20TH EASTERN ZONAL ACCOUNTANTS' CONFERENCE.",
         dateNTime: "Wednesday 22nd - Saturday 25th April, 2026",
         imageURL:
           "https://i.ibb.co/MCsvZ3F/267747493-4687870767962215-8153782044804205123-n.jpg",
@@ -531,7 +531,7 @@ export default {
       theme:
         "BEYOND NIGERIA'S ECONOMIC CRISIS: Unlocking Opportunities for growth",
       venue:
-        "The 19TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
+        "The 20TH ICAN Easthern Zonal Conference will be holding at the heart of The The Conference Will Now Hold Virtually and Physically",
       transport:
         "Attendees who would not be staying around the conference venue are advised to include a little extra budget for their daily transport.",
       hotel:
