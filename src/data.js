@@ -935,34 +935,34 @@ export default {
   ],
   executiveMembers: [
     {
-      name: "Dr. Sylvanus A. Izebhokhae FCA",
-      position: "CHAIRMAN ",
-      imageURL: "assets/images/executive/chairman.png",
+      name: "Dr Anyadufu Anthony Onyeka",
+      position: "CHAIRMAN",
+      imageURL: "assets/images/executive/chairman.jpg",
     },
     {
-      name: "Nkiruka Okeke FCA",
-      position: "VICE-CHAIRMAN",
-      imageURL: "assets/images/executive/vice_chairman.png",
+      name: "OGBU Ude Obasi FCA",
+      position: "VICE CHAIRMAN",
+      imageURL: "assets/images/executive/vice_chairman.jpg",
     },
     {
-      name: "Obasi Ama Ibiam PhD, ACA",
-      position: "SECRETARY",
-      imageURL: "assets/images/executive/secretary.png",
+      name: "Egwu, Emmanuel Chimezie FCA",
+      position: "ZONAL SECRETARY",
+      imageURL: "assets/images/executive/secretary.jpg",
     },
     {
-      name: "Romanus Oshageny Abuguja HND, PGD, MSC, FCA",
-      position: "TREASURER",
-      imageURL: "assets/images/executive/treasurer.png",
-    },
-    {
-      name: "Prof Luke Chukwuka Chukwu FCA",
+      name: "Lolo Lady Aguzie Ogechukwu Loveth",
       position: "ASSISTANT ZONAL SECRETARY",
-      imageURL: "assets/images/executive/assistant_secretary.png",
+      imageURL: "assets/images/executive/assistant_secretary.jpg",
     },
     {
-      name: "Dr. Kingsley Sunday Oyekezie, FCA",
-      position: "IMMEDIATE PAST CHAIRMAN",
-      imageURL: "assets/images/executive/past_chairman.png",
+      name: "Sir Vincent Agbowo, FCA",
+      position: "ZONAL TREASURER",
+      imageURL: "assets/images/executive/treasurer.jpg",
+    },
+    {
+      name: "Dr. Sylvanus A. Izebhokhae FCA",
+      position: "IMMEDIATE PAST ZONAL CHAIRMAN",
+      imageURL: "assets/images/executive/past_chairman.jpg",
     },
     // {
     //   name: "ESTHER EBERCHUKWU UMAHI FCA",
