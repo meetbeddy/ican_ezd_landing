@@ -68,7 +68,7 @@ function Hotels({ hotels }) {
     <section id="hotels" className="py-5 bg-light">
       <Container>
         <div className="text-center mb-5">
-          <h2 className="fw-bold">Available Hotels in Umuahia</h2>
+          <h2 className="fw-bold">Available Hotels in Nsukka</h2>
           <p className="text-muted">Find and book the perfect accommodation for your stay</p>
         </div>
 
