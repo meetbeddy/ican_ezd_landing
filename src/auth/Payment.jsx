@@ -620,6 +620,15 @@ function Payment({
 							Choose Payment Method
 						</h5>
 
+						{/* Remita outage notice */}
+						<div className="alert alert-warning border-warning d-flex align-items-start gap-2 mb-3" role="alert">
+							<i className="bi bi-exclamation-triangle-fill text-warning mt-1 flex-shrink-0"></i>
+							<div>
+								<strong>Remita is currently experiencing issues.</strong> Online payment via Remita may be unavailable.
+								We recommend using <strong>Direct Lodgement</strong> to complete your registration without disruption.
+							</div>
+						</div>
+
 						<Row className="g-3">
 							<Col md={6}>
 								<Card
@@ -643,11 +652,16 @@ function Payment({
 							</Col>
 
 							<Col md={6}>
-								<Card className="h-100 border opacity-50" style={{ cursor: "not-allowed" }}>
+								<Card
+									className={`h-100 ${paymentMethod === "direct" ? "border-success shadow" : "border-success border-2"}`}
+									style={{ cursor: "pointer" }}
+									onClick={() => handlePaymentMethodSelect("direct")}
+								>
 									<Card.Body className="text-center p-4">
-										<i className="bi bi-bank text-muted" style={{ fontSize: "2.5rem" }}></i>
-										<h6 className="fw-semibold mt-3 text-muted">Direct Lodgement / Transfer</h6>
-										<p className="text-muted small">Pay at the bank</p>
+										<i className="bi bi-bank text-success" style={{ fontSize: "2.5rem" }}></i>
+										<h6 className="fw-semibold mt-3 text-success">Direct Lodgement / Transfer</h6>
+										<p className="text-muted small">Lodge to our Zenith Bank account</p>
+										<span className="badge bg-success">Available</span>
 									</Card.Body>
 								</Card>
 							</Col>
@@ -661,12 +675,32 @@ function Payment({
 				<div className="mb-4">
 
 					{paymentMethod === "direct" && !inputValue.paymentSuccess && (
-						<Alert variant="info" className="border-0 shadow-sm">
-							<h6 className="fw-semibold mb-2">Bank Account Details</h6>
-							<p className="mb-1"><strong>Bank:</strong> Zenith Bank</p>
-							<p className="mb-1"><strong>Account Number:</strong> 1015593246</p>
-							<p className="mb-1"><strong>Account Name:</strong> ICAN Eastern Zonal District</p>
-							<p className="mb-0"><strong>Amount:</strong> ₦{amount.toLocaleString()}</p>
+						<Alert variant="success" className="border-success shadow-sm">
+							<h6 className="fw-bold mb-3 d-flex align-items-center gap-2">
+								<i className="bi bi-bank2"></i> Bank Account Details
+							</h6>
+							<div className="bg-white rounded-3 p-3 border border-success">
+								<div className="d-flex justify-content-between border-bottom pb-2 mb-2">
+									<span className="text-muted small fw-semibold">Account Name:</span>
+									<span className="fw-bold">ICAN EASTERN ZONAL DISTRICTS</span>
+								</div>
+								<div className="d-flex justify-content-between border-bottom pb-2 mb-2">
+									<span className="text-muted small fw-semibold">Account Number:</span>
+									<span className="fw-bold fs-5 text-success">1310835801</span>
+								</div>
+								<div className="d-flex justify-content-between border-bottom pb-2 mb-2">
+									<span className="text-muted small fw-semibold">Bank:</span>
+									<span className="fw-bold">Zenith Bank</span>
+								</div>
+								<div className="d-flex justify-content-between">
+									<span className="text-muted small fw-semibold">Amount:</span>
+									<span className="fw-bold text-success fs-5">₦{amount.toLocaleString()}</span>
+								</div>
+							</div>
+							<p className="mt-2 mb-0 small text-muted">
+								<i className="bi bi-info-circle me-1"></i>
+								After making the transfer, fill in your transaction details below and upload your receipt. Your account will be activated after manual verification.
+							</p>
 						</Alert>
 					)}
 
